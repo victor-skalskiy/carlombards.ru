@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "О нас и о проекте";
+}
+
+<div class="page article-page">
+    <div class="dark-theme article-header article-header_without-picture" style="background: rgb(153, 153, 204);">
+        <div class="container">
+            <div class="article-header__container">
+                <div>
+                    <partial name="_PageTagsPartial" />
+                    <section>
+                        <h1>Кто мы и что это за проект</h1>
+                    </section>
+                    <partial name="_ShareLinksPartial" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <article class="article">
+            <section>
+                <section class="article__text-with-image clear-margin-bottom position-image-top">
+                    <h2>What is Lorem Ipsum?</h2>
+                    <div class="article__paragraph">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+                </section>
+            </section>          
+            <section class="article-publish-date article__text">
+                <div class="article__paragraph">15.06.2022 11:16</div>
+            </section>
+        </article>
+        <section>
+            <div class="end-of-article">
+                <div class="end-of-article__container">
+                    <div class="end-of-article__image" style="background: url(&quot;/images/end.jpeg&quot;) 0% 0% / cover rgb(59, 84, 151);"></div><div class="end-of-article__title">Конец</div>
+                </div>
+            </div>
+        </section>
+
+        @*Блок дополнииельных материалов перед футером*@
+        <partial name="_ReadmorePartial" />
+
+    </div>
+</div>
