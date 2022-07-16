@@ -21,12 +21,26 @@ public class ArticleController : Controller
 
     public IActionResult Index()
     {
+        // _HeaderBlackPartial — хедер под черные элементы
+        // _HeaderWhitePartial — белые элементы
+        ViewBag.HeaderName = "_HeaderBlackPartial";
+        ViewBag.ThemeColor = "Black";
         return View();
     }
 
     [Route("analytics")]
     public IActionResult Analytics()
     {
+        ViewBag.HeaderName = "_HeaderBlackPartial";
+        return View();
+    }
+
+    [Route("articles/finance-simulation")]
+    public IActionResult Simulation()
+    {
+        // Black || White
+        ViewBag.ThemeColor = "Black";
+        ViewBag.HeaderName = "_HeaderWhitePartial";
         return View();
     }
 
@@ -47,11 +61,7 @@ public class ArticleController : Controller
         return View();
     }
 
-    [Route("articles/finance-simulation")]
-    public IActionResult Simulation()
-    {
-        return View();
-    }
+    
 
     [Route("articles/kakie-nuzhni-sotrudniki-v-avtolombard")]
     public IActionResult Staff()

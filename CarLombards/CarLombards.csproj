@@ -8,12 +8,10 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
-    <Content Remove="wwwroot\favicons\" />
     <Content Remove="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\favicons\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 </Project>
