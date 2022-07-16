@@ -32,17 +32,23 @@
     <link href="~/css/style1.css" rel="stylesheet">
     <link href="~/css/style2.css" rel="stylesheet">
 </head>
-<body class="chrome chrome103" style="">
+<body class="chrome chrome103">
     <div id="root">
         <div>
-            <partial name="_Header@ViewBag.HeaderName;Partial" />
+            <partial name="@ViewBag.HeaderName" />
             <main class="main" style="top: -780px;">
                 @RenderBody()
             </main>
+
             <partial name="_FooterPartial" />
+
+            <partial name="_MobileMenuPartial" />
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="~/js/main.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

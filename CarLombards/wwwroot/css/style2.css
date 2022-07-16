@@ -2853,7 +2853,7 @@ article section.article__text-icon_icon-info .article__paragraph:before {
 	content: "";
 	width: 32px;
 	height: 32px;
-	background-image: url(../images/icons/pen.png);
+	background-image: url(../images/ico/pen.png);
 	z-index: 100;
 	position: absolute;
 	top: 0;
@@ -13997,7 +13997,7 @@ header.header__invisible {
 	z-index: 0;
 }
 
-.blue-theme .header-nav .nav__item .calculators-menu .dark-theme .header-nav .nav__item .calculators-menu {
+.blue-theme .header-nav .nav__item .calculators-menu,.dark-theme .header-nav .nav__item .calculators-menu {
 	border: .2rem solid #fff;
 }
 
@@ -19257,12 +19257,14 @@ a {
 	background-color: #000;
 } 
 
-header.blue-theme.hide {
+header.blue-theme.hide,
+header.light-theme.hide   {
 	backdrop-filter: blur(10px);
 }
 
 header.light-theme.hide {
 	backdrop-filter: blur(10px);
+
 }
 
 .bottom__content {
@@ -19319,7 +19321,7 @@ border: none;
 	align-items: center;
 }
 
-.logo__analyt { 
+.logo__black { 
 	background-image: url(../images/icons/logo-black.png);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -19327,31 +19329,25 @@ border: none;
 	height: 50px;
 }
 
-.tag__black li {
+.tag__black {
 	border: #000 1px solid !important;
 	color: #000;
 }
-
-.tag__black li a {
-	color: #000 !important;
-	text-decoration: none;
+.logo__page  {
+background-image: url(../favicons/logo4.svg);
+background-size: cover;
+background-repeat: no-repeat;
+width: 186px;
+height: 50px;
 }
 
-.logo__page {
-	background-image: url(../images/icons/logo-white.svg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	width: 186px;
-	height: 50px;
+.logo__page.logo__dark {
+background-image: url(../favicons/logo4.png);
+background-size: cover;
+background-repeat: no-repeat;
+width: 186px;
+height: 50px;
 }
-
-	.logo__page.logo__dark {
-		background-image: url(../images/icons/logo-black.png);
-		background-size: cover;
-		background-repeat: no-repeat;
-		width: 186px;
-		height: 50px;
-	}
 
 .modal {
 	display: none;
@@ -19384,6 +19380,11 @@ background-color: transparent;
 #root div.modal {
 	display: none
 } 
+
+.lite__burger.burger__dark {
+	color: #000;
+}
+ 
 
 @media (max-width: 890px) {
 .header-nav	.nav {

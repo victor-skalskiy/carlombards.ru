@@ -9,16 +9,17 @@
                 <div>
                     <partial name="_PageTagsPartial" />
                     <section>
-                        <h1>Аналитика данных ломбардов</h1>
-                        <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
+                        <h1 class="black__title">Аналитика данных ломбардов</h1>
+                        <div class="description black__desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
                     </section>
                     <partial name="_ShareLinksPartial" />
                 </div>
             </div>
         </div>
-    </div><div class="container">
+    </div>
+    <div class="container">
         <article class="article">
-            <section id="otsenite-zhiznesposobnost-idei">
+            <section>
                 <section class="article__text-with-image clear-margin-bottom position-image-top">
                     <div class="image"><img alt="" src="/images/art1.jpeg"></div>
                     <h2>What is Lorem Ipsum?</h2>
@@ -30,7 +31,7 @@
                         </ul>
                     </div>
                 </section>
-                <section class="article__text-with-image clear-margin-bottom position-image-top" id="">
+                <section class="article__text-with-image clear-margin-bottom position-image-top">
                     <div class="image">
                         <img alt="" src="/images/art2.jpeg">
                     </div>
@@ -44,23 +45,7 @@
                     </div>
                 </section>
             </section>
-            <section id="zaregistriruyte-biznes">
-                <section class="article__text clear-margin-bottom" id="zaregistriruyte-biznes">
-                    <h2>Why do we use it?</h2>
-                </section>
-                <section class="article__video" id="">
-                    <div class="external-video">
-                        <div class="external-video__poster" style="background-image: url(&quot;https://i1.ytimg.com/vi/4traef5T_oI/maxresdefault.jpg&quot;);"></div><div class="external-video__video-wrapper"></div>
-                    </div>
-                </section>
-                <section class="article__text clear-margin-bottom" id="">
-                    <div class="article__paragraph">
-                        <p>
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                        </p>
-                    </div>
-                </section>
-            </section>
+
             <section class="article-publish-date article__text">
                 <div class="article__paragraph">15.06.2022 11:16</div>
             </section>
@@ -68,13 +53,19 @@
         <section>
             <div class="end-of-article">
                 <div class="end-of-article__container">
-                    <div class="end-of-article__image" style="background: url(&quot;/images/end.jpeg&quot;) 0% 0% / cover rgb(59, 84, 151);"></div><div class="end-of-article__title">Конец</div>
+                    <div class="end-of-article__image"
+                         style="background: url(_/images/end.jpeg) 0% 0% / cover rgb(59, 84, 151);">
+                    </div>
+                    <div class="end-of-article__title">Конец</div>
                 </div>
             </div>
         </section>
 
         @*Блок дополнииельных материалов перед футером*@
         <partial name="_ReadmorePartial" />
-
     </div>
+</div>
+<div class="article-reading-progress">
+    <div class="article-reading-progress__fullness" style="width: 100%;"></div>
+    <div class="article-reading-progress__fullness" style="width: 100%;"></div>
 </div>
