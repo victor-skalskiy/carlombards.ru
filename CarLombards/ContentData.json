@@ -117,7 +117,7 @@
     "ListTitle": "О нас и о проекте",
     "PageTitle": "О нас и о проекте",
     "PageH1": "Кто мы и что это за проект",
-    "PageDescription": "",
+    "PageDescription": "Очень важно, чтобы на этих страницах были заполненны эти вот прекрасные поля с описанием старницы. Они очень сильно добавляют харизмы всему дизайну да и в целом наверно хорошая практика показать, что именно человека ждёт на этой странице.",
     "PageDate": "",
     "PageUrl": "/about",
     "ListImageUrl": "/images/about-card.png",
@@ -128,7 +128,9 @@
     "ThemeColor": "Black",
     "IsArticle": true,
     "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <img src=\"/images/about-card.png\" alt=\"\" /> <h2>Мы команда XLombard</h2> <div class=\"article__paragraph\"> <div class=\"article__paragraph\"> <p>С 2014 года мы разрабатываем софт для лизинговых компаний, автоломбардов и прокатов, который, по мнению наших клиентов,&nbsp;—&nbsp;лучший на рынке.</p> </div> </div> <h2>Зачем этот проект</h2> <div class=\"article__paragraph\"> <div class=\"article__paragraph\"> <p>Мы накопили большую экспертизу на рынке и хотим монетизировать её не только через реализацию ПО но и данных, которые мы научились моделировать и интерпретировать.</p> </div> </div> </section>",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "ButtonsShareView": true,
+    "ButtonsColor": "black"
   },
   {
     "ListTitle": "Пользовательское соглашение",
@@ -319,6 +321,8 @@
   //  "ThemeColor": "White",
   //  "IsArticle": true,
   //  "BodyContent": "",
-  //  "InReadMoreList": false
+  //  "InReadMoreList": false,
+  //  "ButtonsShareView": true,
+  //  "ButtonsColor": "black"
   //},
 ]

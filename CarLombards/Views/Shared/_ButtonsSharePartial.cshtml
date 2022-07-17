@@ -1,0 +1,15 @@
+﻿@if (Model.ButtonsShareView)
+{
+    <div class="social-buttons" style="margin-top: 3rem;">
+        <div class="item">
+            <a href="https://t.me/share/url?url=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
+                <img src="/images/icons/telegram-@(Model.ButtonsColor).png" alt="">
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://vk.com/share.php?url=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
+                <img src="/images/icons/vk-@(Model.ButtonsColor).png" alt="">
+            </a>
+        </div>
+    </div>
+}

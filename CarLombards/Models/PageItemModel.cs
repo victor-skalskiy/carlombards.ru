@@ -25,6 +25,9 @@ namespace CarLombards
         public List<List<string>> PageTable { get; set; }
         public string PageTableTitle { get; set; }
         public List<PageItemModel> List { get; set; }
+        public bool ButtonsShareView { get; set; }
+        public string ButtonsColor { get; set; }
+        public string Url(HttpContext context) => $"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}";
     }
 }
 
