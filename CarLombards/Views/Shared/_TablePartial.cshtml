@@ -1,0 +1,128 @@
+﻿
+@if (Model.PageTable != null && Model.PageTable.Count > 0)
+{
+    <section class="article__table">
+        <div class="article__paragraph table__title">@Model.PageTableTitle</div>
+        <div class="horizontal-scroll">
+            <div class="horizontal-scroll__inner_placeholder">
+                <div class="table article-table article-table_1">
+                    <div class="table__table table__table_css-table" role="table">
+                        @{
+                            foreach (var row in Model.PageTable)
+                            {
+                                <div class="table__header">
+                                    <div class="table__row table__row_header" role="row">
+                                        @{
+                                            foreach (var cell in row)
+                                            {
+                                                <div class="table__cell table__cell_header" colspan="1" role="columnheader">
+                                                    <span>@cell</span>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                                break;
+                            }
+                        }
+                        <div class="table__body" role="rowgroup">
+                            @{
+                                int i = 0;
+                                foreach (var row in Model.PageTable)
+                                {
+                                    if (i == 0)
+                                    {
+                                        i++;
+                                        continue;
+                                    }
+                                    <div class="table__row" role="row">
+
+                                        @{
+                                            int c = 0;
+                                            foreach (var cell in row)
+                                            {
+                                                <div class="table__cell" role="cell">
+                                                    @if (c == 0)
+                                                    {
+                                                        <span><strong>@cell</strong></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>@cell</span>
+                                                    }
+                                                    <span>@cell</span>
+                                                </div>
+                                                c++;
+                                            }
+                                        }
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="table__end-of-table"></div>
+                </div>
+            </div>
+            <div class="horizontal-scroll__inner">
+                <div class="table article-table article-table_1">
+                    <div class="table__table table__table_css-table" role="table">
+                        @{
+                            foreach (var row in Model.PageTable)
+                            {
+                                <div class="table__header">
+                                    <div class="table__row table__row_header" role="row">
+                                        @{
+                                            foreach (var cell in row)
+                                            {
+                                                <div class="table__cell table__cell_header" colspan="1" role="columnheader">
+                                                    <span>@cell</span>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                                break;
+                            }
+                        }
+                        <div class="table__body" role="rowgroup">
+                            @{
+                                int i2 = 0;
+                                foreach (var row in Model.PageTable)
+                                {
+                                    if (i2 == 0)
+                                    {
+                                        i2++;
+                                        continue;
+                                    }
+
+                                    <div class="table__row" role="row">
+                                        @{
+                                            int c2 = 0;
+                                            foreach (var cell in row)
+                                            {
+                                                <div class="table__cell" role="cell">
+                                                    @if (c2 == 0)
+                                                    {
+                                                        <span><strong>@cell</strong></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>@cell</span>
+                                                    }
+                                                </div>
+                                                c2++;
+                                            }
+                                        }
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="table__end-of-table"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

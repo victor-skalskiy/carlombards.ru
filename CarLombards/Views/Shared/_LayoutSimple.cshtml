@@ -13,6 +13,22 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
+    @*<link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="mask-icon" href="/f/dist/favicons/safari-pinned-tab.svg" color="#000000">
+        <link rel="apple-touch-icon" sizes="180x180" href="/f/dist/favicons/apple-touch-icon.png">
+        <link rel="manifest" href="/f/dist/favicons/site.webmanifest">
+        <meta property="og:type" content="website">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Как заложить машину в ломбард и не потерять ее">
+        <meta name="twitter:title" content="Как заложить машину в ломбард и не потерять ее">
+        <meta property="og:description" content="Можно ли получить в автоломбарде заем под залог ПТС и чем отличаются условия ломбардов и МФО">
+        <meta name="twitter:description" content="Можно ли получить в автоломбарде заем под залог ПТС и чем отличаются условия ломбардов и МФО">
+        <meta property="og:image" content="/upload/iblock/73e/1656499277_62bc2c4d0d17a.png">
+        <meta name="twitter:image" content="/upload/iblock/73e/1656499277_62bc2c4d0d17a.png">*@
+
     <link href="~/css/style1.css" rel="stylesheet">
     <link href="~/css/style2.css" rel="stylesheet">
 </head>
@@ -34,19 +50,16 @@
                 </div>
             </header>
             <main class="main" style="top: -780px;">
-                <section class="articles__page-section">
-                    <div class="container">
-                        <div style="margin-top: 150px;" class="article__list-inner">
-                            <div class="reduced-container-padding-left">
-                                <h1>@Model.PageH1</h1>
-                                <partial name="_PageTagsPartial" />
+                <div class="page page user-agreement-page">
+                    <div class="container" style="min-height: 500px;">
+                        <div class="post reduced-container">
+                            <h1>@Model.PageH1</h1>
+                            <div>
                                 @RenderBody()
-                              
                             </div>
-
                         </div>
                     </div>
-                </section>
+                </div>
                 <div class="article-reading-progress">
                     <div class="article-reading-progress__fullness" style="width: 100%;"></div>
                     <div class="article-reading-progress__fullness" style="width: 100%;"></div>

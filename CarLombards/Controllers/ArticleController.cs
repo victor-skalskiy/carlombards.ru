@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CarLombards.Models;
+using Newtonsoft.Json;
 
 namespace CarLombards.Controllers;
 
@@ -19,103 +20,229 @@ public class ArticleController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    public enum ThemeColor { Black, White, Yellow }
+
+    private void SetTheme(ThemeColor color = ThemeColor.Black)
+    {
+        // ЛОГОТИП — LogoClass
+        // logo__light — белый
+        // logo__black — черный
+
+        // ХЕДЕР — HeaderClass
+        // blue-theme — белый
+        // light-theme — черный
+
+        // МЕНЮ пункт — MenuItemClass
+        // lite__nav-item — белый
+        // dark__nav-item - черный
+
+        // Бургер — BurgerClass
+        // lite__burger - белый
+        // black__burger - черный
+
+        // ТЭГИ — TagContainerClass
+        // links — белый контейнер
+        // tag__white — белый элемент
+
+        // TagItemClass
+        // articles-page__tags — черный контейнер
+        // tag__black — черный элемент
+
+        //H1 + Description — PageTitleBlockClass
+        // section__white - белый
+        // section__black — черный
+
+        switch (color)
+        {
+            case ThemeColor.White:
+                ViewBag.LogoClass = "logo__light";
+                ViewBag.HeaderClass = "blue-theme";
+                ViewBag.MenuItemClass = "lite__nav-item";
+                ViewBag.BurgerClass = "lite__burger";
+                ViewBag.TagContainerClass = "links";
+                ViewBag.TagItemClass = "tag__white";
+                ViewBag.PageTitleBlockClass = "section__white";
+                break;
+            default:
+                // Black
+                ViewBag.LogoClass = "logo__black";
+                ViewBag.HeaderClass = "light-theme";
+                ViewBag.MenuItemClass = "dark__nav-item";
+                ViewBag.BurgerClass = "black__burger";
+                ViewBag.TagContainerClass = "articles-page__tags";
+                ViewBag.TagItemClass = "tag__black";
+                ViewBag.PageTitleBlockClass = "section__black";
+                break;
+        }
+
+    }
+
+    private List<PageItemModel> GetArticleItems()
+    {
+        List<PageItemModel> items = new List<PageItemModel>();
+        using (StreamReader r = new StreamReader("ContentData.json"))
+        {
+            string json = r.ReadToEnd();
+            items = JsonConvert.DeserializeObject<List<PageItemModel>>(json);
+        }
+        return items;
+    }
+
+    private PageItemModel GetPageItem(string url)
+    {
+        if (url.Substring(0, 1) != "/")
+            url = $"/{url}";
+
+        var finded = GetArticleItems().Where(x => x.PageUrl.ToLower() == url.ToLower()).FirstOrDefault();
+
+        if (finded is null)
+            return new PageItemModel() { ReadMoreList = new List<PageItemModel>() };
+
+        finded.ReadMoreList = GetArticleItems().Where(x => x.InReadMoreList).ToList();
+        return finded;
+    }
+
     public IActionResult Index()
     {
-        // _HeaderBlackPartial — хедер под черные элементы
-        // _HeaderWhitePartial — белые элементы
-        ViewBag.HeaderName = "_HeaderBlackPartial";
-        ViewBag.ThemeColor = "Black";
-        return View();
-    }
+        var page = GetPageItem("index");
+        SetTheme(page.ThemeColor);
 
-    [Route("analytics")]
-    public IActionResult Analytics()
-    {
-        ViewBag.HeaderName = "_HeaderBlackPartial";
-        return View();
-    }
-
-    [Route("articles/finance-simulation")]
-    public IActionResult Simulation()
-    {
-        // Black || White
-        ViewBag.ThemeColor = "Black";
-        ViewBag.HeaderName = "_HeaderWhitePartial";
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [Route("articles/svodnaya-tablitsa-shem-avtolombardov")]
-    public IActionResult Scheme()
-    {
-        return View();
+        return View("Index", page);
     }
 
     [Route("articles")]
     public IActionResult List()
     {
-        return View();
+        var page = GetPageItem("articles");
+        SetTheme(page.ThemeColor);
+        page.List = GetArticleItems().Where(x => x.IsArticle).ToList();
+
+        return View("List", page);
     }
 
-    
+    [Route("contact")]
+    public IActionResult Contact()
+    {
+        var page = GetPageItem("contact");
+        SetTheme(page.ThemeColor);
+        
+        return View("Contact", page);
+    }
+
+    [Route("analytics")]
+    public IActionResult Analytics()
+    {
+        var page = GetPageItem("analytics");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
+    }
+
+    [Route("finance-simulation")]
+    public IActionResult Simulation()
+    {
+        var page = GetPageItem("finance-simulation");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
+    }
+
+    [Route("privacy")]
+    public IActionResult Privacy()
+    {
+        var page = GetPageItem("privacy");
+        SetTheme(page.ThemeColor);
+
+        return View("Simple", page);
+    }
+
+    [Route("articles/svodnaya-tablitsa-shem-avtolombardov")]
+    public IActionResult Scheme()
+    {
+        var page = GetPageItem("articles/svodnaya-tablitsa-shem-avtolombardov");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
+    }
 
     [Route("articles/kakie-nuzhni-sotrudniki-v-avtolombard")]
     public IActionResult Staff()
     {
-        return View();
+        var page = GetPageItem("articles/kakie-nuzhni-sotrudniki-v-avtolombard");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("articles/oshibki-pri-otkrytii-avtolombarda")]
     public IActionResult OpenedErrors()
     {
-        return View();
+        var page = GetPageItem("articles/oshibki-pri-otkrytii-avtolombarda");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("articles/finansovye-pokazateli-po-periodam")]
     public IActionResult FinCounters()
     {
-        return View();
+        var page = GetPageItem("articles/finansovye-pokazateli-po-periodam");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("articles/pomosch-pri-otkrytii-lombarda")]
     public IActionResult Help()
     {
-        return View();
+        var page = GetPageItem("articles/pomosch-pri-otkrytii-lombarda");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("articles/primery-paketov-dokumentov")]
     public IActionResult DocsExample()
     {
-        return View();
+        var page = GetPageItem("articles/primery-paketov-dokumentov");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("articles/voprosi-i-otvety")]
     public IActionResult FAQ()
     {
-        return View();
+        var page = GetPageItem("articles/voprosi-i-otvety");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
-    [Route("articles/community-avtolombardov")]
+    [Route("community")]
     public IActionResult Community()
     {
-        return View();
+        var page = GetPageItem("community");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("about")]
     public IActionResult About()
     {
-        return View();
+        var page = GetPageItem("about");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
 
     [Route("articles/otchetnost-i-nadzornye-organy")]
     public IActionResult Reports()
     {
-        return View();
+        var page = GetPageItem("articles/otchetnost-i-nadzornye-organy");
+        SetTheme(page.ThemeColor);
+
+        return View("Article", page);
     }
-
 }
-

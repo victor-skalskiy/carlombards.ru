@@ -1,15 +1,10 @@
-﻿@*<ul class="tags links tag__black">
-    <li class="tag">Начать бизнес</li>
-    <li class="tag">Планирование</li>
-    <li class="tag">Свое дело</li>
-    <li class="tag"><a href="/articles/?tags=12415">Самозанятые</a></li>
-    <li class="tag"><a href="/articles/?tags=1995">ИП</a></li>
-</ul>
-
-<ul class="tags links">
-    <li class="tag">Начать бизнес</li>
-    <li class="tag">Планирование</li>
-    <li class="tag">Свое дело</li>
-    <li class="tag"><a href="/articles/?tags=12415">Самозанятые</a></li>
-    <li class="tag"><a href="/articles/?tags=1995">ИП</a></li>
-</ul>*@
+﻿@if (Model.RenderHeadTags)
+{
+    <ul class="tags  @ViewBag.TagContainerClass @ViewBag.RenderHeadTagsCenter">
+        <li class="tag @ViewBag.TagItemClass"><a href="#">Начать бизнес</a></li>
+        <li class="tag @ViewBag.TagItemClass"><a href="#">Планирование</a></li>
+        <li class="tag @ViewBag.TagItemClass"><a href="#">Свое дело</a></li>
+        <li class="tag @ViewBag.TagItemClass"><a href="#">Самозанятые</a></li>
+        <li class="tag @ViewBag.TagItemClass"><a href="#">ИП</a></li>
+    </ul>
+}

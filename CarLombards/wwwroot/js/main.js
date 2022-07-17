@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         var menu = $('.blue-theme .header-nav .nav__item');
         let menuA = $('.blue-theme .header-nav .nav__item a');
-        let logo = $('.logo__page');
+        let logo = $('.logo__light');
         let burgerLite = $('.lite__burger');
 
         $(window).scroll(function () {

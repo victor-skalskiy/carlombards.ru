@@ -1,43 +1,25 @@
-﻿<section>
-    <div class="section__title">
-        <h3 class="text-center">Смотрите также</h3>
-    </div>
+﻿@if (Model.RenderReadMore)
+{
     <section>
-        <div class="card-list with-max-width">
-            <ul class="card-list__list">
-                <li class="card card-list__card">
-                    <a href="/articles/kakie-nuzhni-sotrudniki-v-avtolombard">
-                        <div class="card__picture-wrapper"><img src="/images/list6.jpeg" alt=""></div>
-                    </a>
-                    <div class="card__detail">
-                        <h4><a href="/articles/kakie-nuzhni-sotrudniki-v-avtolombard">Какие нужны сотрудники в автоломбард</a></h4>
-                    </div>
-                </li>
-                <li class="card card-list__card">
-                    <a href="/articles/oshibki-pri-otkrytii-avtolombarda">
-                        <div class="card__picture-wrapper"><img src="/images/list7.jpeg" alt=""></div>
-                    </a>
-                    <div class="card__detail">
-                        <h4><a href="/articles/oshibki-pri-otkrytii-avtolombarda">Самые частые ошибки при открытии автоломбарда</a></h4>
-                    </div>
-                </li>
-                <li class="card card-list__card">
-                    <a href="/articles/finansovye-pokazateli-po-periodam">
-                        <div class="card__picture-wrapper"><img src="/images/list5.jpeg" alt=""></div>
-                    </a>
-                    <div class="card__detail">
-                        <h4><a href="/articles/finansovye-pokazateli-po-periodam">Финансовые показатели автоломбарда</a></h4>
-                    </div>
-                </li>
-                <li class="card card-list__card">
-                    <a href="/articles/otchetnost-i-nadzornye-organy">
-                        <div class="card__picture-wrapper"><img src="/images/list1.jpeg" alt=""></div>
-                    </a>
-                    <div class="card__detail">
-                        <h4><a href="/articles/otchetnost-i-nadzornye-organy">Отчетность и надзорные органы автоломбардов</a></h4>
-                    </div>
-                </li>
-            </ul>
+        <div class="section__title">
+            <h3 class="text-center">Смотрите также</h3>
         </div>
+        <section>
+            <div class="card-list with-max-width">
+                <ul class="card-list__list">
+                    @foreach (var item in Model.ReadMoreList)
+                    {
+                        <li class="card card-list__card">
+                            <a href="@item.PageUrl">
+                                <div class="card__picture-wrapper"><img src="@item.ListImageUrl" alt="@item.ListTitle"></div>
+                            </a>
+                            <div class="card__detail">
+                                <h4><a href="@item.PageUrl">@item.ListTitle</a></h4>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </section>
     </section>
-</section>
+}

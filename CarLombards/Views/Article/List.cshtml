@@ -1,102 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Все статьи о автоломбардах";
-}
+﻿@{ Layout = "_LayoutArticle";}
 
-<div class="page articles-page">
-    <div class="container">
-        <h1 class="text-center">Всё о&nbsp;финансах</h1>
-        <div class="articles">
-            <div class="card-list with-max-width">
-                <style>
-                    .background-image-1475 {
-                        background-image: url('/images/list1.jpeg');
-                    }
-
-                    .background-image-2065 {
-                        background-image: url('/images/list2.jpeg');
-                    }
-
-                    .background-image-1562 {
-                        background-image: url('/images/list3.jpeg');
-                    }
-
-                    .background-image-2037 {
-                        background-image: url('/images/list4.jpeg');
-                    }
-
-                    .background-image-2038 {
-                        background-image: url('/images/list5.jpeg');
-                    }
-
-                    .background-image-2039 {
-                        background-image: url('/images/list6.jpeg');
-                    }
-
-                    .background-image-2040 {
-                        background-image: url('/images/list7.jpeg');
-                    }
-
-                    .background-image-2041 {
-                        background-image: url('/images/list8.jpeg');
-                    }
-                </style>
-                <ul class="card-list__list">
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-025&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2039" style="background-color: rgb(248, 236, 124);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/kakie-nuzhni-sotrudniki-v-avtolombard">Какие нужны сотрудники в автоломбард</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-009&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2040" style="background-color: rgb(246, 224, 221);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/oshibki-pri-otkrytii-avtolombarda">Самые частые ошибки при открытии автоломбарда</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2038" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/finansovye-pokazateli-po-periodam/">Финансовые показатели автоломбарда</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2041" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/otchetnost-i-nadzornye-organy">Отчетность и надзорные органы автоломбардов</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-026&quot;);"><div class="card__picture-border"><div class="card__picture background-image-1475" style="background-color: rgb(175, 190, 200);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/svodnaya-tablitsa-shem-avtolombardov">Сводная таблица схем ломбардов</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2037" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/primery-paketov-dokumentov">Примеры пакетов документов</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2037" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                            <h4><a href="/articles/community-avtolombardov/">Комьюнити автоломбардов</a></h4>
-                        </div>
-                    </li>
-                    <li class="card card-list__card">
-                        <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2037" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                            <h4><a href="/about">О проекте</a></h4>
-                        </div>
-                    </li>
-
-                    @*<li class="card card-list__card">
-                            <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2037" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                                <h4><a href="/article/empty/">Какое-то название ещё одной статьи 3</a></h4>
-                            </div>
-                        </li>
-                        <li class="card card-list__card">
-                            <div class="card__picture-wrapper" style="clip-path: url(&quot;#card-picture-clip-path-021&quot;);"><div class="card__picture-border"><div class="card__picture background-image-2037" style="background-color: rgb(134, 111, 57);"></div></div></div><div class="card__detail">
-                                <h4><a href="/article/empty/">Какое-то название ещё одной статьи 3</a></h4>
-                            </div>
-                        </li>*@
-                </ul>
-                <div class="card-list__show-all-button-wrapper">
-                    <button class="button card-list__show-all-button"><span class="button__label">Показать еще</span></button>
-                </div>
-            </div>
+<div class="articles">
+    <div class="card-list with-max-width">
+        <ul class="card-list__list">
+            @foreach (var item in Model.List)
+            {
+                <li class="card card-list__card">
+                    <a href="@item.PageUrl">
+                        <div class="card__picture-wrapper"><img src="@item.ListImageUrl" alt="@item.ListTitle"></div>
+                    </a>
+                    <div class="card__detail">
+                        <h4><a href="@item.PageUrl">@item.ListTitle</a></h4>
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="card-list__show-all-button-wrapper">
+            <button class="button card-list__show-all-button"><span class="button__label">Показать еще</span></button>
         </div>
     </div>
 </div>
