@@ -1,6 +1,6 @@
 ﻿@{ Layout = "_LayoutArticle";}
 
-<div class="articles">
+<div class="articles articles-items">
     <div class="card-list with-max-width">
         <ul class="card-list__list">
             @foreach (var item in Model.List)
@@ -15,8 +15,8 @@
                 </li>
             }
         </ul>
-        <div class="card-list__show-all-button-wrapper">
+        @*<div class="card-list__show-all-button-wrapper">
             <button class="button card-list__show-all-button"><span class="button__label">Показать еще</span></button>
-        </div>
+        </div>*@
     </div>
 </div>

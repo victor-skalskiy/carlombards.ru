@@ -19435,7 +19435,9 @@ header.light-theme.hide {
 .section__black h1, .section__black div {
     color: #000;
 }
-
+.articles-items {
+    margin-top: -100px;
+}
 /*.black__title,
 .black__desc {
     color: #000;
