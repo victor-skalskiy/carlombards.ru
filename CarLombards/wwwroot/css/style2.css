@@ -19380,6 +19380,7 @@ header.light-theme.hide {
 }
 
 .burger {
+    font-size:xx-large;
     display: none;
     position: fixed;
     right: 20px;
@@ -19392,6 +19393,7 @@ header.light-theme.hide {
 
 .close-modal__container {
     color: #000;
+    font-size: xx-large;
 }
 
 .blue-theme .header-nav .nav__item.changed__dark {

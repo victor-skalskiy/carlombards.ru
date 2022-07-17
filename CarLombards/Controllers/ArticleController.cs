@@ -9,6 +9,40 @@ public class ArticleController : Controller
 {
     private readonly ILogger<ArticleController> _logger;
 
+    private List<PageItemModel> _mainMenuItems;
+    public List<PageItemModel> MainMenuItems
+    {
+        get
+        {
+            if (_mainMenuItems is null)
+                _mainMenuItems = GetContentItems()
+                    .Where(x => x.MainMenu).OrderBy(o => o.MainMenuOrder).ToList();
+            return _mainMenuItems;
+        }
+    }
+
+    private List<PageItemModel> _readMoreItems;
+    public List<PageItemModel> ReadMoreItems
+    {
+        get
+        {
+            if (_readMoreItems is null)
+                _readMoreItems = GetContentItems().Where(x => x.InReadMoreList).ToList();
+            return _readMoreItems;
+        }
+    }
+
+    private List<PageItemModel> _importantArticleItems;
+    public List<PageItemModel> ImportantArticleItems
+    {
+        get
+        {
+            if (_importantArticleItems is null)
+                _importantArticleItems = GetContentItems().Where(x => x.ImportantArticle).ToList();
+            return _importantArticleItems;
+        }
+    }
+
     public ArticleController(ILogger<ArticleController> logger)
     {
         _logger = logger;
@@ -77,7 +111,7 @@ public class ArticleController : Controller
 
     }
 
-    private List<PageItemModel> GetArticleItems()
+    private List<PageItemModel> GetContentItems()
     {
         List<PageItemModel> items = new List<PageItemModel>();
         using (StreamReader r = new StreamReader("ContentData.json"))
@@ -93,12 +127,16 @@ public class ArticleController : Controller
         if (url.Substring(0, 1) != "/")
             url = $"/{url}";
 
-        var finded = GetArticleItems().Where(x => x.PageUrl.ToLower() == url.ToLower()).FirstOrDefault();
+        var finded = GetContentItems()
+            .Where(x => x.PageUrl.ToLower() == url.ToLower()).FirstOrDefault();
 
         if (finded is null)
-            return new PageItemModel() { ReadMoreList = new List<PageItemModel>() };
+            finded = new PageItemModel();
 
-        finded.ReadMoreList = GetArticleItems().Where(x => x.InReadMoreList).ToList();
+        finded.MainMenuItems = MainMenuItems;
+        finded.ReadMoreList = ReadMoreItems;
+        finded.ImportantArticleItems = ImportantArticleItems;
+
         return finded;
     }
 
@@ -115,7 +153,7 @@ public class ArticleController : Controller
     {
         var page = GetPageItem("articles");
         SetTheme(page.ThemeColor);
-        page.List = GetArticleItems().Where(x => x.IsArticle).ToList();
+        page.List = GetContentItems().Where(x => x.IsArticle).ToList();
 
         return View("List", page);
     }
@@ -125,7 +163,7 @@ public class ArticleController : Controller
     {
         var page = GetPageItem("contact");
         SetTheme(page.ThemeColor);
-        
+
         return View("Contact", page);
     }
 

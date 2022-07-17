@@ -14,7 +14,9 @@
     "ThemeColor": "Black",
     "IsArticle": true,
     "BodyContent": "",
-    "InReadMoreList": true
+    "InReadMoreList": true,
+    "ImportantArticle": true,
+    "ImportantArticleTitle": "Кого нанять"
   },
   {
     "ListTitle": "Самые частые ошибки при открытии автоломбарда",
@@ -31,7 +33,9 @@
     "ThemeColor": "White",
     "IsArticle": true,
     "BodyContent": "",
-    "InReadMoreList": true
+    "InReadMoreList": true,
+    "ImportantArticle": true,
+    "ImportantArticleTitle": "частые ошибки"
   },
   {
     "ListTitle": "Отчетность и надзорные органы автоломбардов",
@@ -94,7 +98,9 @@
       [ "Основной риск", "проверки прокуратуры и ликвидация бизнеса", "низкий спрос услуги на рынке", "сложность изъятия и реализации залога", "признание судом фиктивной сделки, ликвидация бизнеса" ],
       [ "Прибыль на вложенные ДС в год", "60%", "70%", "40%", "90%" ]
     ],
-    "PageTableTitle": "Таблица сравнения схем автоломбардов"
+    "PageTableTitle": "Таблица сравнения схем автоломбардов",
+    "ImportantArticle": true,
+    "ImportantArticleTitle": "схемы автоломбардов"
   },
   {
     "ListTitle": "Комьюнити автоломбардов",
@@ -126,7 +132,7 @@
     "RenderHeadTags": false,
     "RenderHeadTagsCenter": "",
     "ThemeColor": "Black",
-    "IsArticle": true,
+    "IsArticle": false,
     "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <img src=\"/images/about-card.png\" alt=\"\" /> <h2>Мы команда XLombard</h2> <div class=\"article__paragraph\"> <div class=\"article__paragraph\"> <p>С 2014 года мы разрабатываем софт для лизинговых компаний, автоломбардов и прокатов, который, по мнению наших клиентов,&nbsp;—&nbsp;лучший на рынке.</p> </div> </div> <h2>Зачем этот проект</h2> <div class=\"article__paragraph\"> <div class=\"article__paragraph\"> <p>Мы накопили большую экспертизу на рынке и хотим монетизировать её не только через реализацию ПО но и данных, которые мы научились моделировать и интерпретировать.</p> </div> </div> </section>",
     "InReadMoreList": false,
     "ButtonsShareView": true,
@@ -164,7 +170,11 @@
     "ThemeColor": "Black",
     "IsArticle": true,
     "BodyContent": "",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "MainMenu": true,
+    "MainMenuTitle": "Аналитика",
+    "MainMenuFooterDescription": "Данные для принятий верных решений",
+    "MainMenuOrder": 1
   },
   {
     "ListTitle": "Симулятор финансовой модели",
@@ -181,7 +191,11 @@
     "ThemeColor": "White",
     "IsArticle": true,
     "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <div class=\"article__paragraph\"> <p>Если вам удалось достичь ожидаемых показателей на основании введенных параметров, можно воспользоваться платной версией симулятора, которая позволяет не только посчитать примерный денежный поток, но и на основании средних показателей займа сформирует ваш примерный кредитный портфель. </p> </div> </section>",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "MainMenu": true,
+    "MainMenuTitle": "Симуляция",
+    "MainMenuFooterDescription": "Экономическая модель автоломбарда",
+    "MainMenuOrder": 2
   },
   {
     "ListTitle": "FAQ или ЧаВо по-нашему",
@@ -198,10 +212,14 @@
     "ThemeColor": "White",
     "IsArticle": true,
     "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <div class=\"article__paragraph\"> <aside> 💡 Можно ли привлекать инвесторов (заемные деньги) в автоломбард? </aside> <aside> 💡 При каком кредитном портфеле автоломбард начинает приносить прибыль? </aside> <aside> 💡 Сколько можно нужно вложить денег, чтобы открыть автоломбард? </aside> <aside> 💡 Зачем необходимо подпись владельца в ПТС при залоге? </aside> <aside> 💡 Как правильно оценить автомобиль </aside> <aside> 💡 Как забрать автомобиль у заемщика при схеме работы “под ПТС” </aside> <aside> 💡 Как начать делопроизводство по суду при дефолте заемщика </aside> </div> </section>",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "MainMenu": true,
+    "MainMenuTitle": "ЧаВо",
+    "MainMenuFooterDescription": "Часто задаваемые вопросы и ответы на них",
+    "MainMenuOrder": 4
   },
   {
-    "ListTitle": "Пакетов документов автоломбардов",
+    "ListTitle": "Пакеты документов автоломбардов",
     "PageTitle": "Примеры пакетов документов автоломбардов",
     "PageH1": "Примеры пакетов документов по формам организации",
     "PageDescription": "",
@@ -215,7 +233,9 @@
     "ThemeColor": "Black",
     "IsArticle": true,
     "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Обратный лизинг</h2> <div class=\"article__paragraph\"> <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Залоговый билет</h2> <div class=\"article__paragraph\"> <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Договор займа + залога</h2> <div class=\"article__paragraph\"> <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>ДКП с отсрочкой перехода права собственности</h2> <div class=\"article__paragraph\"> <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> </div> </section>",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "ImportantArticle": true,
+    "ImportantArticleTitle": "пакеты документов"
   },
   {
     "ListTitle": "Помощь при открытии",
@@ -233,7 +253,11 @@
     "IsArticle": true,
     //"BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Подготовим документы</h2> <div class=\"article__paragraph\"> <p>Подготовим все необходимые документы для регистрации автоломбарда в зависимости от выбранной формы организации.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Создадим сайт</h2> <div class=\"article__paragraph\"> <p>Создадим сайт, подключим личный кабинет клиента, подключим эквайринги для осуществления платежей клиентов.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Настроим программы</h2> <div class=\"article__paragraph\"> <p>Посоветуем и настроим программное обеспечение для работы автоломбарда</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Наладим инфраструктуру</h2> <div class=\"article__paragraph\"> <p>Подберем подрядчиков для ведения бухгалтерии, сдачи отчетности, эвакуации ТС и т.д.</p> </div> </section>",
     "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <img src=\"/images/service-card-2.png\" alt=\"\" /> <h2>Подготовим документы</h2> <div class=\"article__paragraph\"> <p>Подготовим все необходимые документы для регистрации автоломбарда в зависимости от выбранной формы организации.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Создадим сайт</h2> <div class=\"article__paragraph\"> <p>Создадим сайт, подключим личный кабинет клиента, подключим эквайринги для осуществления платежей клиентов.</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Настроим программы</h2> <div class=\"article__paragraph\"> <p>Посоветуем и настроим программное обеспечение для работы автоломбарда</p> </div> </section> <section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <h2>Наладим инфраструктуру</h2> <div class=\"article__paragraph\"> <p>Подберем подрядчиков для ведения бухгалтерии, сдачи отчетности, эвакуации ТС и т.д.</p> </div> </section",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "MainMenu": true,
+    "MainMenuTitle": "Помощь здесь",
+    "MainMenuFooterDescription": "Помощь предпринимателям при открытии автоломбарда",
+    "MainMenuOrder": 5
   },
   {
     "ListTitle": "Финансовые показатели по периодам",
@@ -286,7 +310,11 @@
     "ThemeColor": "Black",
     "IsArticle": false,
     "BodyContent": "",
-    "InReadMoreList": false
+    "InReadMoreList": false,
+    "MainMenu": true,
+    "MainMenuTitle": "Статьи",
+    "MainMenuFooterDescription": "Всё о автоломбардах",
+    "MainMenuOrder": 3
   },
   {
     "ListTitle": "",
@@ -308,12 +336,12 @@
   //,
   //{
   //  "ListTitle": "",
+  //  "ListImageUrl": "",
   //  "PageTitle": "",
   //  "PageH1": "",
   //  "PageDescription": "",
   //  "PageDate": "06.07.2022 14:32",
   //  "PageUrl": "/",
-  //  "ListImageUrl": "",
   //  "HeadBackgroundColor": "",
   //  "RenderReadMore": true,
   //  "RenderHeadTags": false,
@@ -322,7 +350,14 @@
   //  "IsArticle": true,
   //  "BodyContent": "",
   //  "InReadMoreList": false,
+  //  "PageTable": "",
+  //  "PageTableTitle": "",
   //  "ButtonsShareView": true,
-  //  "ButtonsColor": "black"
+  //  "ButtonsColor": "black",
+  //  "MainMenu": true,
+  //  "MainMenuTitle":  "Аналитика",
+  //  "MainMenuFooterDescription": "",
+  //  "MainMenuOrder": 1,
+  //  "ImportantArticle": true
   //},
 ]

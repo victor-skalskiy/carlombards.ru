@@ -1,0 +1,28 @@
+﻿<div class="pages-menu">
+    @foreach (var item in Model.MainMenuItems)
+    {
+        <div class="pages-menu__links">
+            <div class="pages-menu__links-title">
+                <a class="h3" data-hover="Аналитика" href="/analytics">@item.MainMenuTitle</a>
+            </div>
+            <div>@item.MainMenuFooterDescription</div>
+        </div>
+    }
+    <div class="pages-menu__links">
+        <div class="pages-menu__links-title">
+            <h3>Важные статьи</h3>
+        </div>
+        @{
+            string RenderComma(int current)
+            {
+                return Model.ImportantArticleItems.Count != current ? "<span>, </span>" : "";
+            }
+            int i = 0;
+            foreach (var item in Model.ImportantArticleItems)
+            {
+                i++;
+                <a data-hover="@item.ImportantArticleTitle" href="@item.PageUrl">@item.ImportantArticleTitle</a>@Html.Raw(RenderComma(i))
+            }
+        }
+    </div>
+</div>
