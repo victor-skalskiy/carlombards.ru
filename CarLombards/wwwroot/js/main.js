@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-
     let burger = document.querySelector('.burger')
     let modal = document.querySelector('.modal')
     let closeModal = document.querySelector('.close-modal__container');
@@ -39,17 +38,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     });
 
+    //const isMobile = {
+    //    iOS: function () {
+    //        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    //    },
+    //    any: function () {
+    //        return (
+    //            isMobile.iOS());
+    //    }
+    //};
 
+    //if (isMobile.any()) {
+    //    window.addEventListener('scroll', function () {
+    //        if (window.scrollY) {
+    //            console.log('bottom');
+    //            $('header').addClass("apple");
+    //        } else {
+    //            $('header').removeClass("apple");
+    //        }
+
+    //    })
+    //}
 });
-
-
-
-
-
-
-
-
-
-
-
-

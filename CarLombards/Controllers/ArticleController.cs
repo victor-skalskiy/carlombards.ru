@@ -43,9 +43,12 @@ public class ArticleController : Controller
         }
     }
 
-    public ArticleController(ILogger<ArticleController> logger)
+    private readonly string _soul;
+
+    public ArticleController(ILogger<ArticleController> logger, IConfiguration configuration)
     {
         _logger = logger;
+        _soul = configuration.GetSection("Soul").Value;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -86,8 +89,10 @@ public class ArticleController : Controller
         // section__white - белый
         // section__black — черный
 
+        ViewBag.Soul = _soul;
+
         switch (color)
-        {
+        {            
             case ThemeColor.White:
                 ViewBag.LogoClass = "logo__light";
                 ViewBag.HeaderClass = "blue-theme";
@@ -164,7 +169,16 @@ public class ArticleController : Controller
         var page = GetPageItem("contact");
         SetTheme(page.ThemeColor);
 
-        return View("Contact", page);
+        return View("Form", page);
+    }
+
+    [Route("request-access")]
+    public IActionResult GetAccess()
+    {
+        var page = GetPageItem("request-access");
+        SetTheme(page.ThemeColor);
+
+        return View("Form", page);
     }
 
     [Route("analytics")]

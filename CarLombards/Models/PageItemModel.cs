@@ -29,6 +29,8 @@ namespace CarLombards
         public List<List<string>> PageTable { get; set; }
         public string PageTableTitle { get; set; }
 
+        public string PageScript { get; set; }
+
         [JsonIgnore]
         public List<PageItemModel> List { get; set; }
 

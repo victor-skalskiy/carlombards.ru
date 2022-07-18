@@ -9081,17 +9081,6 @@ body.visually-impaired-mode .checkbox__box:after {
     z-index: 1;
 }
 
-.close-modal__container {
-    -webkit-border-bottom-left-radius: 3rem;
-    -moz-border-radius-bottomleft: 3rem;
-    border-bottom-left-radius: 3rem;
-    cursor: pointer;
-    height: 6rem;
-    position: absolute;
-    width: 2.4rem;
-    z-index: 1;
-}
-
 @media (max-width:768px) {
     .close-modal__container:after {
         font-size: -webkit-calc((100vw - 32rem)/44.8*0.8 + 1.6rem);
@@ -12978,6 +12967,7 @@ body.visually-impaired-mode .textarea.textarea_error.textarea_error {
 
 .pages-menu__links-title {
     margin-bottom: 5px;
+    text-decoration: underline;
 }
 
     .pages-menu__links-title h3 {
@@ -13537,7 +13527,7 @@ body:not(.modal-is-opened) .blue-theme .logo_alternative .repaintStroke {
 }
 
 .modal-menu {
-    margin-top: -55px;
+    margin-top: -45px;
 }
 
 .modal-menu__container {
@@ -13750,7 +13740,7 @@ header.header__invisible {
 }
 
     .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
-        color: #000;
+        color: #fff;
     }
 
 .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
@@ -19265,6 +19255,7 @@ a {
 header.blue-theme.hide,
 header.light-theme.hide {
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 header.light-theme.hide {
@@ -19380,7 +19371,7 @@ header.light-theme.hide {
 }
 
 .burger {
-    font-size:xx-large;
+    font-size: xx-large;
     display: none;
     position: fixed;
     right: 20px;
@@ -19389,11 +19380,6 @@ header.light-theme.hide {
 
 .burger__dark {
     color: #000;
-}
-
-.close-modal__container {
-    color: #000;
-    font-size: xx-large;
 }
 
 .blue-theme .header-nav .nav__item.changed__dark {
@@ -19435,6 +19421,7 @@ header.light-theme.hide {
 .section__black h1, .section__black div {
     color: #000;
 }
+
 .articles-items {
     margin-top: -100px;
 }
@@ -19443,3 +19430,37 @@ header.light-theme.hide {
     color: #000;
 }*/
 /* changed styles  end*/
+
+header.blue-theme.apple,
+header.light-theme.apple {
+    background-color: #fff;
+}
+
+@media (max-width: 700px) {
+    .footer__grid .pages-menu {
+        display: none;
+    }
+}
+
+.modal-menu__container .pages-menu .pages-menu__links .pages-menu__links-title > a {
+    text-decoration: underline;
+}
+
+.blue-theme .header-nav .lite__nav-item.changed__dark:hover {
+    background-color: #000;
+}
+
+.close-modal__container {
+    position: fixed;
+    right: 20px;
+    top: 40px;
+    z-index: 1;
+}
+
+.modal-menu .logo__light {
+    background-image: url(../images/icons/logo-black.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 186px;
+    height: 50px;
+}

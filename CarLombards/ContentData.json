@@ -159,7 +159,7 @@
     "ListTitle": "Аналитика",
     "PageTitle": "Аналитика данных",
     "PageH1": "Аналитика данных",
-    "PageDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "PageDescription": "Мы сформировали обезличыенный массив экономических данных (фин-модель) автоломбардов и расскажем как и для чего он будет полезен предпринимателю открывающему автоломбард.",
     "PageDate": "",
     "PageUrl": "/analytics",
     "ListImageUrl": "/images/icons/no-picture.png",
@@ -169,7 +169,7 @@
     "RenderHeadTagsCenter": "",
     "ThemeColor": "Black",
     "IsArticle": true,
-    "BodyContent": "",
+    "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"><div class=\"article__paragraph\"><p>Описание этого раздела находится в разработке, но данные у нас уже есть и вы можете оставить заявку для получение их по кнопке ниже.</p><a class=\"button button_with-margin\" tabindex=\"0\" href=\"/request-access\"> <span class=\"button__label\">Запросить доступ</span></a></div></section>",
     "InReadMoreList": false,
     "MainMenu": true,
     "MainMenuTitle": "Аналитика",
@@ -190,7 +190,7 @@
     "RenderHeadTagsCenter": "",
     "ThemeColor": "White",
     "IsArticle": true,
-    "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <div class=\"article__paragraph\"> <p>Если вам удалось достичь ожидаемых показателей на основании введенных параметров, можно воспользоваться платной версией симулятора, которая позволяет не только посчитать примерный денежный поток, но и на основании средних показателей займа сформирует ваш примерный кредитный портфель. </p> </div> </section>",
+    "BodyContent": "<section class=\"article__text-with-image clear-margin-bottom position-image-top\"> <div class=\"article__paragraph\"> <p>Если вам удалось достичь ожидаемых показателей на основании введенных параметров, можно воспользоваться платной версией симулятора, которая позволяет не только посчитать примерный денежный поток, но и на основании средних показателей займа сформирует ваш примерный кредитный портфель. </p> </div></section><section class=\"article__text-with-image clear-margin-bottom position-image-top\"><div class=\"article__paragraph\"><p>Описание этого раздела находится в разработке, но данные у нас уже есть и вы можете оставить заявку для получение их по кнопке ниже.</p><a class=\"button button_with-margin\" tabindex=\"0\" href=\"/request-access\"> <span class=\"button__label\">Запросить доступ</span></a></div></section>",
     "InReadMoreList": false,
     "MainMenu": true,
     "MainMenuTitle": "Симуляция",
@@ -320,7 +320,7 @@
     "ListTitle": "",
     "PageTitle": "Свяжитесь с нами",
     "PageH1": "Свяжитесь с нами",
-    "PageDescription": "",
+    "PageDescription": "Если вы предпочитаете общаться по WhatsApp'у, то оставьте номер телефона в этой форме и напишите ваш вопрос. <br />Мы свяжемся с вами через WhatsApp как только сможем.",
     "PageDate": "",
     "PageUrl": "/contact",
     "ListImageUrl": "",
@@ -330,8 +330,27 @@
     "RenderHeadTagsCenter": "",
     "ThemeColor": "Black",
     "IsArticle": false,
-    "BodyContent": "",
-    "InReadMoreList": false
+    "BodyContent": "<p> Здесь вы можете задать вопрос, если какая-то часть текста осталась непонятной, или оставить заявку на получение нашей помощи. </p> <p> Получить оперативные ответы на другие вопросы вы можете через наш <a href=\"https://t.me/xlombardbot\">телеграм-бот</a>. <br />А также в группе <a href=\"https://t.me/+SYNZ3mMKFeYzYTAy\">сообщества автоломбардов</a>. </p>",
+    "InReadMoreList": false,
+    "PageScript": "<script>!function (a, m, o, c, r, m) { a[o + c] = a[o + c] || { setMeta: function (p) { this.params = (this.params || []).concat([p]) } }, a[o + r] = a[o + r] || function (f) { a[o + r].f = (a[o + r].f || []).concat([f]) }, a[o + r]({ id: \"965251\", hash: \"f4c3ca4d48f0350088d5977ccd2f2627\", locale: \"ru\" }), a[o + m] = a[o + m] || function (f, k) { a[o + m].f = (a[o + m].f || []).concat([[f, k]]) } }(window, 0, \"amo_forms_\", \"params\", \"load\", \"loaded\");</script><script id=\"amoforms_script_965251\" async=\"async\" charset=\"utf-8\" src=\"https://forms.amocrm.ru/forms/assets/js/amoforms.js?1658138188\"></script>"
+  },
+  {
+    "ListTitle": "",
+    "PageTitle": "Запрос доступа к данным",
+    "PageH1": "Запросить доступ к материалам",
+    "PageDescription": "",
+    "PageDate": "",
+    "PageUrl": "/request-access",
+    "ListImageUrl": "",
+    "HeadBackgroundColor": "",
+    "RenderReadMore": false,
+    "RenderHeadTags": false,
+    "RenderHeadTagsCenter": "",
+    "ThemeColor": "Black",
+    "IsArticle": false,
+    "BodyContent": "<p>Здесь вы можете оставить свою контактную информацию для для получения доступа к непубличной информации. Нам потребуется установить с вами небольшой контакт и понять, чем и как мы сможем вам помочь.</p><p>Если вы знаете какую информацию вы хотите получить — пожалуйста, укажите это в форме и добавьте несколько слов в примечание — так мы отреагируем на ваш запрос быстрее.</p>",
+    "InReadMoreList": false,
+    "PageScript": "<script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:\"966523\",hash:\"63816a2935f10861dc42b4e2a09cbc39\",locale:\"ru\"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,\"amo_forms_\",\"params\",\"load\",\"loaded\");</script><script id=\"amoforms_script_966523\" async=\"async\" charset=\"utf-8\" src=\"https://forms.amocrm.ru/forms/assets/js/amoforms.js?1658144316\"></script>"
   }
   //,
   //{
@@ -358,6 +377,7 @@
   //  "MainMenuTitle":  "Аналитика",
   //  "MainMenuFooterDescription": "",
   //  "MainMenuOrder": 1,
-  //  "ImportantArticle": true
+  //  "ImportantArticle": true,
+  //  "PageScript": ""
   //},
 ]

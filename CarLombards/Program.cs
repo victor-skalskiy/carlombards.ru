@@ -1,7 +1,10 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.Extensions.Configuration;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 var app = builder.Build();
 

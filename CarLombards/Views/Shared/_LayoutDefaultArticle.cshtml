@@ -14,8 +14,8 @@
     <meta name="description" content="">
     <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
 
-    <link href="~/css/style1.css" rel="stylesheet">
-    <link href="~/css/style2.css" rel="stylesheet">
+    <link href="~/css/style1.css?@ViewBag.Soul" rel="stylesheet">
+    <link href="~/css/style2.css?@ViewBag.Soul" rel="stylesheet">
 </head>
 <body class="chrome chrome103">
     <div id="root">
@@ -95,7 +95,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="~/js/main.js"></script>
+    <script src="~/js/main.js?@ViewBag.Soul"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

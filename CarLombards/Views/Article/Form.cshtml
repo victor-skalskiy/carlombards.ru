@@ -1,0 +1,15 @@
+﻿@{ Layout = "_Layout";}
+
+<div class="grid grid-2-1">
+    <div>
+        @Html.Raw(Model.BodyContent)
+    </div>
+</div>
+<div class="grid grid-2-1">
+    <div class="form__new">
+        @Html.Raw(Model.PageScript)
+    </div>
+    <div class="feedback__info">
+        <p>@Html.Raw(Model.PageDescription)</p>
+    </div>
+</div>
