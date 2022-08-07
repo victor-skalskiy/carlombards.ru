@@ -402,5 +402,10 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
 
+Orchard.Core.CMS
+OrchardCore.Samples
+OrchardCore.CMS
+
 # Local History for Visual Studio
 .localhistory/
+

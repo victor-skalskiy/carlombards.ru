@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "CL.CMS: Create — New page";
+}
+<form asp-controller="Pages" asp-action="Create">
+
+    <partial name="_EditFields" model="@Model" />
+
+    <div class="form-group pt-3">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

@@ -1,0 +1,257 @@
+﻿@model PagesEditModel
+
+<div class="mt-5 mb-4">
+    <h1>@Model.Title</h1>
+</div>
+
+<div class="accordion" id="accordion-fields">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="main-title-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-title-body" aria-expanded="false" aria-controls="main-title-body">
+                <strong>Main page settings</strong>
+            </button>
+        </h2>
+        <div id="main-title-body" class="accordion-collapse collapse" aria-labelledby="main-title-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-3">
+                        <label class="form-label" asp-for="@Model.Title"></label>
+                        <input class="form-control" asp-for="@Model.Title" />
+                        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label class="form-label" asp-for="@Model.PageUrl"></label>
+                        <input class="form-control" asp-for="@Model.PageUrl" />
+                        <span asp-validation-for="@Model.PageUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="form-label" asp-for="@Model.PageView"></label>
+                        <input class="form-control" asp-for="@Model.PageView" />
+                        <span asp-validation-for="@Model.PageView" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input class="form-check-input" asp-for=@Model.IsArticle type="checkbox" value="@Model.IsArticle" name="@nameof(Model.IsArticle)" />
+                        <label class="form-check-label" asp-for="@Model.IsArticle"></label>
+                        <span asp-validation-for="@Model.IsArticle" class="text-danger"></span>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="meta-data-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meta-data-body" aria-expanded="true" aria-controls="meta-data-body">
+                <strong>Meta-data</strong>
+            </button>
+        </h2>
+        <div id="meta-data-body" class="accordion-collapse collapse" aria-labelledby="meta-data-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.PageTitle"></label>
+                        <input class="form-control" asp-for="@Model.PageTitle" />
+                        <span asp-validation-for="@Model.PageTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.PageDescription"></label>
+                        <input class="form-control" asp-for="@Model.PageDescription" />
+                        <span asp-validation-for="@Model.PageDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.MetaKeywords"></label>
+                        <input class="form-control" asp-for="@Model.MetaKeywords" />
+                        <span asp-validation-for="@Model.MetaKeywords" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="main-menu-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu-body" aria-expanded="false" aria-controls="main-menu-body">
+                <strong>Menu settings (main, footer, mobile)</strong>
+            </button>
+        </h2>
+        <div id="main-menu-body" class="accordion-collapse collapse" aria-labelledby="main-menu-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-2">
+                        <input class="form-check-input" asp-for=@Model.MainMenu type="checkbox" value="@Model.MainMenu" name="@nameof(Model.MainMenu)" />
+                        <label class="form-check-label" asp-for="@Model.MainMenu"></label>
+                        <span asp-validation-for="@Model.MainMenu" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="form-label" asp-for="@Model.MainMenuTitle"></label>
+                        <input class="form-control" asp-for="@Model.MainMenuTitle" />
+                        <span asp-validation-for="@Model.MainMenuTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-label" asp-for="@Model.MainMenuFooterDescription"></label>
+                        <input class="form-control" asp-for="@Model.MainMenuFooterDescription" />
+                        <span asp-validation-for="@Model.MainMenuFooterDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="form-label" asp-for="@Model.MainMenuOrder"></label>
+                        <input class="form-control" asp-for="@Model.MainMenuOrder" />
+                        <span asp-validation-for="@Model.MainMenuOrder" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input class="form-check-input" asp-for=@Model.ImportantArticle type="checkbox" value="@Model.ImportantArticle" name="@nameof(Model.ImportantArticle)" />
+                        <label class="form-check-label" asp-for="@Model.ImportantArticle"></label>
+                        <span asp-validation-for="@Model.ImportantArticle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label class="form-label" asp-for="@Model.ImportantArticleTitle"></label>
+                        <input class="form-control" asp-for="@Model.ImportantArticleTitle" />
+                        <span asp-validation-for="@Model.ImportantArticleTitle" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="list-settings-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#list-settings-body" aria-expanded="false" aria-controls="list-settings-body">
+                <strong>List view</strong>
+            </button>
+        </h2>
+        <div id="list-settings-body" class="accordion-collapse collapse" aria-labelledby="list-settings-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-6">
+                        <label class="form-label" asp-for="@Model.ListTitle"></label>
+                        <input class="form-control" asp-for="@Model.ListTitle" />
+                        <span asp-validation-for="@Model.ListTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-label" asp-for="@Model.ListImageUrl"></label>
+                        <input class="form-control" asp-for="@Model.ListImageUrl" />
+                        <span asp-validation-for="@Model.ListImageUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input class="form-check-input" asp-for=@Model.InReadMoreList type="checkbox" value="@Model.InReadMoreList" name="@nameof(Model.InReadMoreList)" />
+                        <label class="form-check-label" asp-for="@Model.InReadMoreList"></label>
+                        <span asp-validation-for="@Model.InReadMoreList" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="main-content-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-content-body" aria-expanded="false" aria-controls="main-content-body">
+                <strong>Main content</strong>
+            </button>
+        </h2>
+        <div id="main-content-body" class="accordion-collapse collapse" aria-labelledby="main-content-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.PageH1"></label>
+                        <input class="form-control" asp-for="@Model.PageH1" />
+                        <span asp-validation-for="@Model.PageH1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="form-label" asp-for="@Model.PageDate"></label>
+                        <input class="form-control" asp-for="@Model.PageDate" />
+                        <span asp-validation-for="@Model.PageDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input class="form-check-input" asp-for=@Model.RenderReadMore type="checkbox" value="@Model.RenderReadMore" name="@nameof(Model.RenderReadMore)" />
+                        <label class="form-check-label" asp-for="@Model.RenderReadMore"></label>
+                        <span asp-validation-for="@Model.RenderReadMore" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input class="form-check-input" asp-for=@Model.RenderHeadTags type="checkbox" value="@Model.RenderHeadTags" name="@nameof(Model.RenderHeadTags)" />
+                        <label class="form-check-label" asp-for="@Model.RenderHeadTags"></label>
+                        <span asp-validation-for="@Model.RenderHeadTags" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input class="form-check-input" asp-for=@Model.ButtonsShareView type="checkbox" value="@Model.ButtonsShareView" name="@nameof(Model.ButtonsShareView)" />
+                        <label class="form-check-label" asp-for="@Model.ButtonsShareView"></label>
+                        <span asp-validation-for="@Model.ButtonsShareView" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.BodyContent"></label>
+                        <textarea class="form-control" asp-for="@Model.BodyContent" cols="80" rows="3"></textarea>
+                        <span asp-validation-for="@Model.BodyContent" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="table-settings-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#table-settings-body" aria-expanded="false" aria-controls="table-settings-body">
+                <strong>Custom table (like objects)</strong>
+            </button>
+        </h2>
+        <div id="table-settings-body" class="accordion-collapse collapse" aria-labelledby="table-settings-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.PageTableTitle"></label>
+                        <input class="form-control" asp-for="@Model.PageTableTitle" />
+                        <span asp-validation-for="@Model.PageTableTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.PageTable"></label>
+                        <textarea class="form-control" asp-for="@Model.PageTable" cols="80" rows="3"></textarea>
+                        <span asp-validation-for="@Model.PageTable" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="js-code-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#js-code-body" aria-expanded="false" aria-controls="js-code-body">
+                <strong>Client code (amo forms, etc)</strong>
+            </button>
+        </h2>
+        <div id="js-code-body" class="accordion-collapse collapse" aria-labelledby="js-code-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-12">
+                        <label class="form-label" asp-for="@Model.PageScript"></label>
+                        <textarea class="form-control" asp-for="@Model.PageScript" cols="80" rows="3"></textarea>
+                        <span asp-validation-for="@Model.PageScript" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="theme-settings-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#theme-settings-body" aria-expanded="false" aria-controls="theme-settings-body">
+                <strong>Page theme settings</strong>
+            </button>
+        </h2>
+        <div id="theme-settings-body" class="accordion-collapse collapse" aria-labelledby="theme-settings-header" data-bs-parent="#accordion-fields">
+            <div class="accordion-body">
+                <div class="row g-3">
+                    <div class="form-group col-md-3">
+                        <label class="form-label" asp-for="@Model.ThemeColor"></label>
+                        <input class="form-control" asp-for="@Model.ThemeColor" />
+                        <span asp-validation-for="@Model.ThemeColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="form-label" asp-for="@Model.ButtonsColor"></label>
+                        <input class="form-control" asp-for="@Model.ButtonsColor" />
+                        <span asp-validation-for="@Model.ButtonsColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="form-label" asp-for="@Model.HeadBackgroundColor"></label>
+                        <input class="form-control" asp-for="@Model.HeadBackgroundColor" />
+                        <span asp-validation-for="@Model.HeadBackgroundColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="form-label" asp-for="@Model.RenderHeadTagsCenter"></label>
+                        <input class="form-control" asp-for="@Model.RenderHeadTagsCenter" />
+                        <span asp-validation-for="@Model.RenderHeadTagsCenter" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

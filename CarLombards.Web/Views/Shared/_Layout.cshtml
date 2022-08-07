@@ -1,0 +1,76 @@
+﻿<html lang="ru">
+<head>
+    <base href="/">
+    <title>@Model.MetaTitle</title>
+    <meta charset="utf-8">
+
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-title" content="@Model.MetaTitle">
+    <meta name="application-name" content="@Model.MetaApplicationName">
+    <meta name="prerender-status-code" content="200">
+    <meta name="viewport" content="width=device-width,initial-scale=1,min-scale=1">
+    <meta name="theme-color" content="@Model.HeadBackgroundColor" />
+    <meta name="keywords" content="@Model.MetaKeywords">
+    <meta name="description" content="@Model.MetaDescription">
+
+    <meta property="og:type" content="website">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:title" content="@Model.MetaTitle">
+    <meta property="og:description" content="@Model.MetaDescription">
+    <meta property="og:image" content="/images/icons/share.png">
+
+    <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
+
+    <link href="~/css/style1.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/css/style2.css" rel="stylesheet" asp-append-version="true">
+</head>
+<body class="chrome chrome103">
+    <div id="root">
+        <div>
+            <header class="@Model.HeaderClass">
+                <div class="pseudo-header"></div>
+                <div class="container">
+                    <div class="header-nav">
+                        <div class="logo logo_alternative" style="padding-top: 5px;">
+                            <a href="/">
+                                <div class="@Model.LogoClass"></div>
+                            </a>
+                        </div>
+                        <partial name="_MainMenuPartial" />
+                        <div class="burger @Model.BurgerClass">&#9776;</div>
+                    </div>
+                </div>
+            </header>
+            <main class="main" style="top: -780px;">
+                <section class="articles__page-section">
+                    <div class="container">
+                        <div style="margin-top: 150px;" class="article__list-inner">
+                            <div class="reduced-container-padding-left">
+                                <h1>@Model.PageH1</h1>
+                                <partial name="_PageTagsPartial" />
+                                @RenderBody()                              
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="article-reading-progress">
+                    <div class="article-reading-progress__fullness" style="width: 100%;"></div>
+                    <div class="article-reading-progress__fullness" style="width: 100%;"></div>
+                </div>
+            </main>
+
+            <partial name="_FooterPartial" />
+
+            <partial name="_MobileMenuPartial" />
+        </div>
+    </div>
+
+    <script src="~/js/jquery.min.js" asp-append-version="false"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

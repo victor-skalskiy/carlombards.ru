@@ -1,0 +1,13 @@
+﻿@model PagesEditModel
+@{
+    ViewData["Title"] =  $"CL.CMS: Edit — {Model.Title}";
+ }
+
+<form asp-controller="Pages" asp-action="Edit">
+
+    <partial name="_EditFields" model="@Model" />
+
+    <div class="form-group pt-3">
+        <button type="submit" class="btn btn-primary">Save</button>        
+    </div>
+</form>
