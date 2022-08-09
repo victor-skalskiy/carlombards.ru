@@ -9,7 +9,7 @@ public class PagesEditModel
 
     public long Id { get; set; }
 
-    [Display(Name = "Title")]
+    [Display(Name = "Title"), Required]
     public string Title { get; set; }
 
     [Display(Name = "ListTitle")]
@@ -93,7 +93,7 @@ public class PagesEditModel
     [Display(Name = "ImportantArticleTitle")]
     public string ImportantArticleTitle { get; set; }
 
-    [Display(Name = "PageView")]
+    [Display(Name = "PageView"), Required]
     public string PageView { get; set; }
 }
 

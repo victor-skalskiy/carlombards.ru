@@ -9,12 +9,10 @@ namespace CarLombards.Controllers;
 
 public class ArticleController : Controller
 {
-    private readonly ILogger<ArticleController> _logger;
     private readonly IPagesService _pages;
 
-    public ArticleController(ILogger<ArticleController> logger, IPagesService pages)
+    public ArticleController(IPagesService pages)
     {
-        _logger = logger;
         _pages = pages;
     }
 

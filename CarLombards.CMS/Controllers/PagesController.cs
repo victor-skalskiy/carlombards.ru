@@ -14,13 +14,11 @@ public class PagesController : Controller
     }
 
     private readonly string _indexUrl;
-    private readonly ILogger<PagesController> _logger;
-    private readonly IPagesService _service;
+    private readonly IPagesService _pages;
 
-    public PagesController(ILogger<PagesController> logger, IPagesService service)
+    public PagesController(IPagesService service)
     {
-        _logger = logger;
-        _service = service;
+        _pages = service;
         _indexUrl = "/";
     }
 
@@ -29,7 +27,7 @@ public class PagesController : Controller
     {
         return View(new IndexModel
         {
-            PagesList = await _service.GetListAsync(HttpContext.RequestAborted)
+            PagesList = await _pages.GetListAsync(HttpContext.RequestAborted)
         });
     }
 
@@ -44,7 +42,7 @@ public class PagesController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(PagesEditModel model)
     {
-        await _service.CreateAsync(model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
+        await _pages.CreateAsync(model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
             model.PageDescription, model.PageDate, model.PageUrl, model.HeadBackgroundColor, model.RenderReadMore, model.RenderHeadTags,
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
@@ -57,7 +55,7 @@ public class PagesController : Controller
     [HttpGet]
     public async Task<IActionResult> Edit(long id)
     {
-        var pages = await _service.GetAsync(id, HttpContext.RequestAborted);
+        var pages = await _pages.GetAsync(id, HttpContext.RequestAborted);
         return View(
             nameof(this.Edit),
             new PagesEditModel()
@@ -98,7 +96,7 @@ public class PagesController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(long id, PagesEditModel model)
     {
-        await _service.UpdateAsync(id, model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
+        await _pages.UpdateAsync(id, model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
             model.PageDescription, model.PageDate, model.PageUrl, model.HeadBackgroundColor, model.RenderReadMore, model.RenderHeadTags,
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
@@ -108,13 +106,15 @@ public class PagesController : Controller
         return Redirect(_indexUrl);
     }
 
+    [HttpGet]
     public async Task<IActionResult> Delete(long id)
     {
-        await _service.DeleteAsync(id, HttpContext.RequestAborted);
+        await _pages.DeleteAsync(id, HttpContext.RequestAborted);
 
         return Redirect(_indexUrl);
     }
 
+    [HttpGet]
     public async Task<IActionResult> Load()
     {
         List<PagesEditModel> items = new List<PagesEditModel>();
@@ -126,7 +126,7 @@ public class PagesController : Controller
 
         foreach (var item in items)
         {
-           await _service.CreateAsync(item.ListTitle, item.ListImageUrl, item.PageTitle, item.PageH1,
+           await _pages.CreateAsync(item.ListTitle, item.ListImageUrl, item.PageTitle, item.PageH1,
             item.PageDescription, item.PageDate, item.PageUrl, item.HeadBackgroundColor, item.RenderReadMore, item.RenderHeadTags,
             item.RenderHeadTagsCenter, item.ThemeColor, item.IsArticle, item.BodyContent, item.InReadMoreList, item.PageTable,
             item.PageTableTitle, item.ButtonsShareView, item.ButtonsColor, item.MainMenu, item.MainMenuTitle,
