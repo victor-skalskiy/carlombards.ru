@@ -46,7 +46,8 @@ public class PagesController : Controller
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.Title, model.PageView, HttpContext.RequestAborted);
+            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
+            HttpContext.RequestAborted);
 
         return RedirectToAction(nameof(Index));
     }
@@ -88,7 +89,9 @@ public class PagesController : Controller
                 RenderHeadTagsCenter = pages.RenderHeadTagsCenter,
                 RenderReadMore = pages.RenderReadMore,
                 ThemeColor = pages.ThemeColor,
-                PageView = pages.PageView
+                PageView = pages.PageView,
+                MetaDescription = pages.MetaDescription,
+                PageTableContent = pages.PageTableContent
             });
     }
 
@@ -100,7 +103,8 @@ public class PagesController : Controller
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.Title, model.PageView, HttpContext.RequestAborted);
+            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
+            HttpContext.RequestAborted);
 
         return RedirectToAction(nameof(Index));
     }
@@ -123,14 +127,15 @@ public class PagesController : Controller
             items = JsonConvert.DeserializeObject<List<PagesEditModel>>(json);
         }
 
-        foreach (var item in items)
+        foreach (var model in items)
         {
-           await _pages.CreateAsync(item.ListTitle, item.ListImageUrl, item.PageTitle, item.PageH1,
-            item.PageDescription, item.PageDate, item.PageUrl, item.HeadBackgroundColor, item.RenderReadMore, item.RenderHeadTags,
-            item.RenderHeadTagsCenter, item.ThemeColor, item.IsArticle, item.BodyContent, item.InReadMoreList, item.PageTable,
-            item.PageTableTitle, item.ButtonsShareView, item.ButtonsColor, item.MainMenu, item.MainMenuTitle,
-            item.MainMenuFooterDescription, item.MainMenuOrder, item.ImportantArticle, item.PageScript, item.MetaKeywords,
-            item.ImportantArticleTitle, item.ListTitle, item.PageView, HttpContext.RequestAborted);
+           await _pages.CreateAsync(model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
+            model.PageDescription, model.PageDate, model.PageUrl, model.HeadBackgroundColor, model.RenderReadMore, model.RenderHeadTags,
+            model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
+            model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
+            model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
+            model.ImportantArticleTitle, model.ListTitle, model.PageView, model.MetaDescription, model.PageTableContent,
+            HttpContext.RequestAborted);
         }
 
         return RedirectToAction(nameof(Index));

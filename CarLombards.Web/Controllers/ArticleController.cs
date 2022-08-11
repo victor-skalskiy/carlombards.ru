@@ -69,7 +69,9 @@ public class ArticleController : Controller
                 RenderHeadTagsCenter = pages.RenderHeadTagsCenter,
                 RenderReadMore = pages.RenderReadMore,
                 ThemeColor = (ThemeColor)Enum.Parse(typeof(ThemeColor), pages.ThemeColor),
-                PageView = pages.PageView
+                PageView = pages.PageView,
+                PageTableContent = pages.PageTableContent,
+                MetaDescription = pages.MetaDescription
             };
 
 

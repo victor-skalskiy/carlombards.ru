@@ -35,6 +35,8 @@ public static class Mapper
             ThemeColor = pagesEntity.ThemeColor,
             MetaKeywords = pagesEntity.MetaKeywords,
             ImportantArticleTitle = pagesEntity.ImportantArticleTitle,
-            PageView = pagesEntity.PageView
+            PageView = pagesEntity.PageView,
+            MetaDescription = pagesEntity.MetaDescription,
+            PageTableContent = pagesEntity.PageTableContent
         };
 }

@@ -8,7 +8,7 @@ public class PageItemModel
     public PageItemModel() { }
 
     public string MetaTitle => PageTitle;
-    public string MetaDescription => PageDescription;
+    public string MetaDescription { get; set; }
     public string MetaKeywords { get; set; }
     public string MetaApplicationName => "Как открыть Автоломбард?!";
 
@@ -33,6 +33,7 @@ public class PageItemModel
     public bool InReadMoreList { get; set; }
     public List<List<string>> PageTable { get; set; }
     public string PageTableTitle { get; set; }
+    public string PageTableContent { get; set; }
 
     public string PageScript { get; set; }
 

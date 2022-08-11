@@ -27,6 +27,9 @@ public class PagesEditModel
     [Display(Name = "PageDescription")]
     public string PageDescription { get; set; }
 
+    [Display(Name = "MetaDescription")]
+    public string MetaDescription { get; set; }
+
     [Display(Name = "PageDate")]
     public string PageDate { get; set; }
 
@@ -62,6 +65,9 @@ public class PagesEditModel
 
     [Display(Name = "PageTableTitle")]
     public string PageTableTitle { get; set; }
+
+    [Display(Name ="PageTableContent")]
+    public string PageTableContent { get; set; }
 
     [Display(Name = "ButtonsShareView")]
     public bool ButtonsShareView { get; set; }

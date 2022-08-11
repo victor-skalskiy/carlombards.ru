@@ -74,7 +74,7 @@ public class PagesService : IPagesService
         string themeColor, bool isArticle, string bodyContent, bool inReadMoreList, string pageTable, string pageTableTitle,
         bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle, string mainMenuFooterDescription,
         int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords, string importantArticleTitle,
-        string title, string pageView, CancellationToken token = default)
+        string title, string pageView, string metaDescription, string pageTableContent, CancellationToken token = default)
     {
         var created = new PagesEntity()
         {
@@ -107,7 +107,9 @@ public class PagesService : IPagesService
             MetaKeywords = metaKeywords,
             ImportantArticleTitle = importantArticleTitle,
             PageView = pageView,
-            IsActive = true
+            IsActive = true,
+            MetaDescription = metaDescription,
+            PageTableContent = pageTableContent
         };
 
         _context.PagesEntities.Add(created);
@@ -121,7 +123,8 @@ public class PagesService : IPagesService
         string renderHeadTagsCenter, string themeColor, bool isArticle, string bodyContent, bool inReadMoreList, string pageTable,
         string pageTableTitle, bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle,
         string mainMenuFooterDescription, int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords,
-        string importantArticleTitle, string title, string pageView, CancellationToken token = default)
+        string importantArticleTitle, string title, string pageView, string metaDescription, string pageTableContent,
+        CancellationToken token = default)
     {
         var finded = await _context.PagesEntities.Where(x => x.IsActive && x.Id == id).FirstOrDefaultAsync();
         if (finded is null)
@@ -157,6 +160,8 @@ public class PagesService : IPagesService
         finded.MetaKeywords = metaKeywords;
         finded.ImportantArticleTitle = importantArticleTitle;
         finded.PageView = pageView;
+        finded.MetaDescription = metaDescription;
+        finded.PageTableContent = pageTableContent;
 
         _context.PagesEntities.Update(finded);
         await _context.SaveChangesAsync(token);

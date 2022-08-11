@@ -1,3 +1,4 @@
 ﻿$(document).ready(function () {
-    $('#BodyContent').summernote();
+    $('.summernote').each(function () { $(this).summernote(); });
+    //$('#BodyContent').summernote();
 });

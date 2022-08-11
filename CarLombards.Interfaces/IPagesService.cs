@@ -25,14 +25,15 @@ public interface IPagesService
         string themeColor, bool isArticle, string bodyContent, bool inReadMoreList, string pageTable, string pageTableTitle,
         bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle, string mainMenuFooterDescription, int mainMenuOrder,
         bool importantArticle, string pageScript, string metaKeywords, string importantArticleTitle, string title, string pageView,
-        CancellationToken token = default);
+        string metaDescription, string pageTableContent, CancellationToken token = default);
 
     public Task<Pages> UpdateAsync(long id, string listTitle, string listImageUrl, string pageTitle, string pageH1,
         string pageDescription, string pageDate, string pageUrl, string headBackgroundColor, bool renderReadMore, bool renderHeadTags,
         string renderHeadTagsCenter, string themeColor, bool isArticle, string bodyContent, bool inReadMoreList, string pageTable,
         string pageTableTitle, bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle,
         string mainMenuFooterDescription, int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords,
-        string importantArticleTitle, string title, string pageView, CancellationToken token = default);
+        string importantArticleTitle, string title, string pageView, string metaDescription, string pageTableContent,
+        CancellationToken token = default);
 
     public Task<bool> DeleteAsync(long id, CancellationToken token = default);
 }

@@ -125,3 +125,7 @@
         </div>
     </section>
 }
+@if (!string.IsNullOrWhiteSpace(Model.PageTableContent))
+    {
+        @Html.Raw(Model.PageTableContent)
+    }
