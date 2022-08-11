@@ -13729,39 +13729,44 @@ header.header__invisible {
 .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container svg path {
     stroke: #fff;
 }
-
+.header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container,
 .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover {
     color: #fff;
 }
-
+    .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container a,
     .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
         color: #fff;
     }
-
+.dark-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container,
 .dark-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover {
     color: #000;
 }
-
+    .dark-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container a,
     .dark-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
         color: #000;
     }
-
+.blue-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container,
 .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover {
     color: #000;
 }
-
+    .blue-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container a,
     .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
         color: #000;
     }
+.blue-theme .header-nav .logo_alternative + .nav .nav__item.changed__dark:hover .nav__item_container a,
+.blue-theme .header-nav .logo_alternative + .nav .nav__item.changed__dark .nav__item_container:hover a {
+    color: #fff;
+}
 
+.header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container svg path,
 .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
     fill: #000;
 }
-
+.dark-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container svg path,
 .dark-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
     fill: #fff;
 }
-
+.blue-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container svg path,
 .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
     fill: #fff;
 }
