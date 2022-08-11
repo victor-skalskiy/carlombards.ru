@@ -26,6 +26,7 @@
 
     <link href="~/css/style1.css" rel="stylesheet" asp-append-version="true">
     <link href="~/css/style2.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/css/style3.css" rel="stylesheet">
 </head>
 <body class="chrome chrome103">
     <div id="root">
@@ -45,17 +46,53 @@
                 </div>
             </header>
             <main class="main" style="top: -780px;">
-                <section class="articles__page-section">
-                    <div class="container">
-                        <div style="margin-top: 150px;" class="article__list-inner">
-                            <div class="reduced-container-padding-left">
-                                <h1>@Model.PageH1</h1>
-                                <partial name="_PageTagsPartial" />
-                                @RenderBody()                              
+                <div class="page article-page">
+                    <div class="dark-theme article-header article-header_without-picture" style="background: @Model.HeadBackgroundColor;">
+                        <div class="container">
+                            <div class="article-header__container">
+                                <div>
+                                    <section class="@Model.PageTitleBlockClass">
+                                        <partial name="_PageTagsPartial" />
+                                        <h1>@Model.PageH1</h1>
+                                        @if (!string.IsNullOrWhiteSpace(Model.PageDescription))
+                                        {
+                                            <div class="description">@Html.Raw(Model.PageDescription)</div>
+                                        }
+                                        <partial name="_ButtonsSharePartial" />
+                                    </section>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                    <div class="container" style="min-height: 500px;">
+                        <article class="article">
+                            <section>
+                                @RenderBody()
+                            </section>
+                            @if (!string.IsNullOrWhiteSpace(Model.PageDate))
+                            {
+                                <section class="article-publish-date article__text">
+                                    <div class="article__paragraph">@Model.PageDate</div>
+                                </section>
+                            }
+                        </article>
+                        @if (!string.IsNullOrWhiteSpace(Model.PageDate))
+                        {
+                            <section>
+                                <div class="end-of-article">
+                                    <div class="end-of-article__container">
+                                        <div class="end-of-article__image" style="background: url('/images/end.jpeg') 0% 0% / cover @Model.HeadBackgroundColor;"></div><div class="end-of-article__title">Конец</div>
+                                    </div>
+                                </div>
+                            </section>
+                        }
+                        @*Блок дополнииельных материалов перед футером*@
+                        @if (Model.RenderReadMore)
+                        {
+                            <partial name="_ReadmorePartial" />
+                        }
+                    </div>
+                </div>
                 <div class="article-reading-progress">
                     <div class="article-reading-progress__fullness" style="width: 100%;"></div>
                     <div class="article-reading-progress__fullness" style="width: 100%;"></div>

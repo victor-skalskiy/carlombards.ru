@@ -32,4 +32,6 @@ public class PagesEntity : BaseEntity
     public string? MetaKeywords { get; set; }
     public string? ImportantArticleTitle { get; set; }
     public string PageView { get; set; }
+    public PagesEntity LinkedPage { get; set; }
+    public string LinkedPageBtnTitle { get; set; }
 }

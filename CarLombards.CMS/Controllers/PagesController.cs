@@ -13,13 +13,11 @@ public class PagesController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    private readonly string _indexUrl;
     private readonly IPagesService _pages;
 
     public PagesController(IPagesService service)
     {
         _pages = service;
-        _indexUrl = "/";
     }
 
     [HttpGet]
@@ -49,7 +47,7 @@ public class PagesController : Controller
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
             model.ImportantArticleTitle, model.Title, model.PageView, HttpContext.RequestAborted);
 
-        return Redirect(_indexUrl);
+        return RedirectToAction(nameof(Index));
     }
 
     [HttpGet]
@@ -103,7 +101,7 @@ public class PagesController : Controller
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
             model.ImportantArticleTitle, model.Title, model.PageView, HttpContext.RequestAborted);
 
-        return Redirect(_indexUrl);
+        return RedirectToAction(nameof(Index));
     }
 
     [HttpGet]
@@ -111,7 +109,7 @@ public class PagesController : Controller
     {
         await _pages.DeleteAsync(id, HttpContext.RequestAborted);
 
-        return Redirect(_indexUrl);
+        return RedirectToAction(nameof(Index));
     }
 
     [HttpGet]
@@ -134,6 +132,6 @@ public class PagesController : Controller
             item.ImportantArticleTitle, item.ListTitle, item.PageView, HttpContext.RequestAborted);
         }
 
-        return Redirect(_indexUrl);
+        return RedirectToAction(nameof(Index));
     }
 }

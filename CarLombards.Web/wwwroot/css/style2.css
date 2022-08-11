@@ -13837,17 +13837,17 @@ header.header__invisible {
     color: #fff;
 }
 
-    .dark-theme .header-nav .nav__item a:hover {
-        color: #000;
-    }
+.dark-theme .header-nav .nav__item:hover a {
+    color: #000;
+}
 
 .blue-theme .header-nav .nav__item a {
     color: #fff;
 }
 
-    .blue-theme .header-nav .nav__item a:hover {
-        color: #000;
-    }
+.blue-theme .header-nav .nav__item:hover a {
+    color: #000;
+}
 
 .header-nav .nav__item a.active {
     background: #fac91b;

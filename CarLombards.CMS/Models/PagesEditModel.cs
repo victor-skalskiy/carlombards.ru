@@ -48,7 +48,7 @@ public class PagesEditModel
     [Display(Name = "ThemeColor")]
     public string ThemeColor { get; set; }
 
-    [Display(Name = "IsArticle")]
+    [Display(Name = "IsArticle field")]
     public bool IsArticle { get; set; }
 
     [Display(Name = "BodyContent")]

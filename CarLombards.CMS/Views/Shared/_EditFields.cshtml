@@ -30,7 +30,7 @@
                         <span asp-validation-for="@Model.PageView" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-2">
-                        <input class="form-check-input" asp-for=@Model.IsArticle type="checkbox" value="@Model.IsArticle" name="@nameof(Model.IsArticle)" />
+                        <input class="form-check-input" asp-for=@Model.IsArticle type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.IsArticle"></label>
                         <span asp-validation-for="@Model.IsArticle" class="text-danger"></span>
                     </div>                    
@@ -76,7 +76,7 @@
             <div class="accordion-body">
                 <div class="row g-3">
                     <div class="form-group col-md-2">
-                        <input class="form-check-input" asp-for=@Model.MainMenu type="checkbox" value="@Model.MainMenu" name="@nameof(Model.MainMenu)" />
+                        <input class="form-check-input" asp-for=@Model.MainMenu type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.MainMenu"></label>
                         <span asp-validation-for="@Model.MainMenu" class="text-danger"></span>
                     </div>
@@ -96,7 +96,7 @@
                         <span asp-validation-for="@Model.MainMenuOrder" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-3">
-                        <input class="form-check-input" asp-for=@Model.ImportantArticle type="checkbox" value="@Model.ImportantArticle" name="@nameof(Model.ImportantArticle)" />
+                        <input class="form-check-input" asp-for=@Model.ImportantArticle type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.ImportantArticle"></label>
                         <span asp-validation-for="@Model.ImportantArticle" class="text-danger"></span>
                     </div>
@@ -129,7 +129,7 @@
                         <span asp-validation-for="@Model.ListImageUrl" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-12">
-                        <input class="form-check-input" asp-for=@Model.InReadMoreList type="checkbox" value="@Model.InReadMoreList" name="@nameof(Model.InReadMoreList)" />
+                        <input class="form-check-input" asp-for=@Model.InReadMoreList type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.InReadMoreList"></label>
                         <span asp-validation-for="@Model.InReadMoreList" class="text-danger"></span>
                     </div>
@@ -157,17 +157,17 @@
                         <span asp-validation-for="@Model.PageDate" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-3">
-                        <input class="form-check-input" asp-for=@Model.RenderReadMore type="checkbox" value="@Model.RenderReadMore" name="@nameof(Model.RenderReadMore)" />
+                        <input class="form-check-input" asp-for=@Model.RenderReadMore type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.RenderReadMore"></label>
                         <span asp-validation-for="@Model.RenderReadMore" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-3">
-                        <input class="form-check-input" asp-for=@Model.RenderHeadTags type="checkbox" value="@Model.RenderHeadTags" name="@nameof(Model.RenderHeadTags)" />
+                        <input class="form-check-input" asp-for=@Model.RenderHeadTags type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.RenderHeadTags"></label>
                         <span asp-validation-for="@Model.RenderHeadTags" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-3">
-                        <input class="form-check-input" asp-for=@Model.ButtonsShareView type="checkbox" value="@Model.ButtonsShareView" name="@nameof(Model.ButtonsShareView)" />
+                        <input class="form-check-input" asp-for=@Model.ButtonsShareView type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.ButtonsShareView"></label>
                         <span asp-validation-for="@Model.ButtonsShareView" class="text-danger"></span>
                     </div>
