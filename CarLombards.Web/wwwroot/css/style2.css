@@ -2850,7 +2850,7 @@ article section.article__text-icon_icon-info .article__paragraph {
     position: relative;
 }
 
-    article section.article__text-icon_icon-info .article__paragraph:before {
+    article section.article__text-icon_icon-info .article__paragraph.with_pen:before {
         content: "";
         width: 32px;
         height: 32px;
@@ -2860,6 +2860,17 @@ article section.article__text-icon_icon-info .article__paragraph {
         top: 0;
         left: 0;
     }
+    article section.article__text-icon_icon-info .article__paragraph.with_lamp:before {
+        content: "";
+        width: 32px;
+        height: 32px;
+        background-image: url(../images/icons/mylamp.png);
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
 
 article section.article__text-icon_icon-history .article__paragraph {
     padding-left: 50px;
@@ -13740,7 +13751,7 @@ header.header__invisible {
 }
 
     .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
-        color: #fff;
+        color: #000;
     }
 
 .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
