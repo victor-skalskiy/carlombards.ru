@@ -14,6 +14,11 @@ public class PagesService : IPagesService
         _context = context;
     }
 
+    public async Task<List<Pages>> GetAllAsync(CancellationToken token = default)
+    {
+        return await _context.PagesEntities.Select(z => Mapper.FillPages(z)).ToListAsync();
+    }
+
     public async Task<Pages> GetAsync(long id, CancellationToken token = default)
     {
         var finded = await _context.PagesEntities.Where(x => x.IsActive && x.Id == id).FirstOrDefaultAsync();

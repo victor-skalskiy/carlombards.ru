@@ -8,6 +8,8 @@ public interface IPagesService
 
     public Task<Pages> GetByUrlAsync(string url , CancellationToken token = default);
 
+    public Task<List<Pages>> GetAllAsync(CancellationToken token = default);
+
     public Task<List<Pages>> GetListAsync(CancellationToken token = default);
 
     public Task<List<Pages>> GetImportant(CancellationToken token = default);

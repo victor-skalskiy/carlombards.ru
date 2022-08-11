@@ -14,6 +14,7 @@ public class PagesController : Controller
     }
 
     private readonly IPagesService _pages;
+    private const string dataFileName = "ContentData.json";
 
     public PagesController(IPagesService service)
     {
@@ -116,7 +117,7 @@ public class PagesController : Controller
     public async Task<IActionResult> Load()
     {
         List<PagesEditModel> items = new List<PagesEditModel>();
-        using (StreamReader r = new StreamReader("ContentData.json"))
+        using (StreamReader r = new StreamReader(dataFileName))
         {
             string json = r.ReadToEnd();
             items = JsonConvert.DeserializeObject<List<PagesEditModel>>(json);
@@ -131,6 +132,15 @@ public class PagesController : Controller
             item.MainMenuFooterDescription, item.MainMenuOrder, item.ImportantArticle, item.PageScript, item.MetaKeywords,
             item.ImportantArticleTitle, item.ListTitle, item.PageView, HttpContext.RequestAborted);
         }
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> Save()
+    {
+        var allitems = await _pages.GetAllAsync(HttpContext.RequestAborted);
+        var lines = JsonConvert.SerializeObject(allitems);
+        System.IO.File.WriteAllLines(dataFileName, new string[] { lines });
 
         return RedirectToAction(nameof(Index));
     }
