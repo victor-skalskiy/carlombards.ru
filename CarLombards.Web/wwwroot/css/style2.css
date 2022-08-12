@@ -2870,7 +2870,16 @@ article section.article__text-icon_icon-info .article__paragraph {
         top: 0;
         left: 0;
     }
-
+    article section.article__text-icon_icon-info .article__paragraph.with_question:before {
+        content: "";
+        width: 32px;
+        height: 32px;
+        background-image: url(../images/icons/question.png);
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
 article section.article__text-icon_icon-history .article__paragraph {
     padding-left: 50px;
