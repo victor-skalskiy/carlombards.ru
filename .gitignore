@@ -406,6 +406,8 @@ Orchard.Core.CMS
 OrchardCore.Samples
 OrchardCore.CMS
 original-images
+CarLombards.Web/wwwroot/images/*.webp
+CarLombards.Web/wwwroot/images/*.png
 
 # Local History for Visual Studio
 .localhistory/
