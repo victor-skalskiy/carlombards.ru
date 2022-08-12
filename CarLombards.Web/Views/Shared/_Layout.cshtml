@@ -53,7 +53,7 @@
                                 <div>
                                     <section class="@Model.PageTitleBlockClass">
                                         <partial name="_PageTagsPartial" />
-                                        <h1>@Model.PageH1</h1>
+                                        <h1>@Html.Raw(Model.PageH1)</h1>
                                         @if (!string.IsNullOrWhiteSpace(Model.PageDescription))
                                         {
                                             <div class="description">@Html.Raw(Model.PageDescription)</div>

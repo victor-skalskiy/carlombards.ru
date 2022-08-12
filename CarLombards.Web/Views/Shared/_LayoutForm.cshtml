@@ -46,10 +46,10 @@
             </header>
             <main class="main" style="top: -780px;">
                 <section class="articles__page-section">
-                    <div class="container">
+                    <div class="container"  style="min-height: 500px;">
                         <div style="margin-top: 150px;" class="article__list-inner">
                             <div class="reduced-container-padding-left">
-                                <h1>@Model.PageH1</h1>
+                                <h1>@Html.Raw(Model.PageH1)</h1>
                                 <partial name="_PageTagsPartial" />
                                 @RenderBody()                              
                             </div>
