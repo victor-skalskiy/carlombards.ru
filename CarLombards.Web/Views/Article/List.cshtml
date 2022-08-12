@@ -10,7 +10,7 @@
                         <div class="card__picture-wrapper"><img src="@item.ListImageUrl" alt="@item.ListTitle"></div>
                     </a>
                     <div class="card__detail">
-                        <h4><a href="@item.PageUrl">@item.ListTitle</a></h4>
+                        <h4><a href="@item.PageUrl">@Html.Raw(item.ListTitle)</a></h4>
                     </div>
                 </li>
             }
