@@ -14,6 +14,8 @@ public interface IPagesService
 
     public Task<List<string>> GetSitemapAsync(CancellationToken token = default);
 
+    public Task<Dictionary<string, Pages>> GetTagsListAsync(CancellationToken token = default);
+
     public Task<List<Pages>> GetImportant(CancellationToken token = default);
 
     public Task<List<Pages>> GetReadMore(CancellationToken token = default);

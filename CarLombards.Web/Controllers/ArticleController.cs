@@ -10,10 +10,12 @@ namespace CarLombards.Controllers;
 public class ArticleController : Controller
 {
     private readonly IPagesService _pages;
+    private readonly IPagesOptions _pagesOptions;
 
-    public ArticleController(IPagesService pages)
+    public ArticleController(IPagesService pages, IPagesOptions pagesOptions)
     {
         _pages = pages;
+        _pagesOptions = pagesOptions;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -75,7 +77,9 @@ public class ArticleController : Controller
                 SiteMapPriority = pages.SiteMapPriority
             };
 
-
+        var tags = await _pages.GetTagsListAsync();
+        model.TagsBody = tags[_pagesOptions.TagsBodyEntityTitle].PageScript;
+        model.TagsHeader = tags[_pagesOptions.TagsHeadEntityTitle].PageScript;
         model.MainMenuItems = await _pages.GetMainMenu();
         model.ReadMoreList = await _pages.GetReadMore();
         model.ImportantArticleItems = await _pages.GetImportant();

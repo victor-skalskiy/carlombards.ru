@@ -10,6 +10,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services
     .AddDbContext<PagesContext>(options => { options.UseNpgsql(connectionString); })
     .AddScoped<IPagesService, PagesService>()
+    .AddSingleton<IPagesOptions, PagesOptions>()
     .AddControllersWithViews();
 
 var app = builder.Build();

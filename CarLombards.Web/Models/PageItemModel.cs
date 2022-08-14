@@ -65,6 +65,9 @@ public class PageItemModel
     public string PageView { get; set; }
     public string SiteMapPriority { get; set; }
 
+    public string TagsHeader { get; set; }
+    public string TagsBody { get; set; }
+
 
     #region ВИЗУАЛКА
     /// <summary>

@@ -8,10 +8,12 @@ namespace CarLombards.Services;
 public class PagesService : IPagesService
 {
     private readonly PagesContext _context;
+    private readonly IPagesOptions _pagesOptions;
     
-    public PagesService(PagesContext context)
+    public PagesService(PagesContext context, IPagesOptions pagesOptions)
     {
         _context = context;
+        _pagesOptions = pagesOptions;
     }
 
     public async Task<List<Pages>> GetAllAsync(CancellationToken token = default)
@@ -201,6 +203,33 @@ public class PagesService : IPagesService
             result.Add($"<url><loc>https://carlombards.ru{page.PageUrl}</loc><lastmod>{page.ModifyDate:yyyy-MM-dd}</lastmod><priority>{page.SiteMapPriority}</priority></url>");
         }
         result.Add("</urlset>");
+
+        return result;
+    }
+
+    private async Task<PagesEntity> CreateEmptyTagsEntity(string title)
+    {
+        var pages = new PagesEntity() { Title = title, PageUrl = title, PageView = _pagesOptions.EmptyEntityViewTitle };
+        _context.PagesEntities.Add(pages);
+
+        await _context.SaveChangesAsync();
+
+        return pages;
+    }
+
+    public async Task<Dictionary<string, Pages>> GetTagsListAsync(CancellationToken token = default)
+    {
+        var result = new Dictionary<string, Pages>();
+
+        var headTagsEntity = await _context.PagesEntities.Where(x => x.Title == _pagesOptions.TagsHeadEntityTitle).FirstOrDefaultAsync();
+        if (headTagsEntity is null)
+            headTagsEntity = await CreateEmptyTagsEntity(_pagesOptions.TagsHeadEntityTitle);
+        result.Add(_pagesOptions.TagsHeadEntityTitle, Mapper.FillPages(headTagsEntity));
+
+        var bodyTagsEntity = await _context.PagesEntities.Where(x => x.Title == _pagesOptions.TagsBodyEntityTitle).FirstOrDefaultAsync();
+        if (bodyTagsEntity is null)
+            bodyTagsEntity = await CreateEmptyTagsEntity(_pagesOptions.TagsBodyEntityTitle);
+        result.Add(_pagesOptions.TagsBodyEntityTitle, Mapper.FillPages(bodyTagsEntity));
 
         return result;
     }
