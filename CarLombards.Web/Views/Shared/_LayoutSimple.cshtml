@@ -14,10 +14,11 @@
     <meta name="keywords" content="@Model.MetaKeywords">
     <meta name="description" content="@Model.MetaDescription">
 
+    <meta property="og:url" content="@Model.Url(Context)">
     <meta property="og:type" content="website">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     <meta property="og:title" content="@Model.MetaTitle">
     <meta property="og:description" content="@Model.MetaDescription">
     <meta property="og:image" content="@Model.ListImageUrl">
@@ -26,8 +27,11 @@
 
     <link href="~/css/style1.css" rel="stylesheet" asp-append-version="true">
     <link href="~/css/style2.css" rel="stylesheet" asp-append-version="true">
+
+    <partial name="_HeaderTags" />
 </head>
 <body class="chrome chrome103">
+    <partial name="_BodyTags" />
     <div id="root">
         <div>
             <header class="@Model.HeaderClass">

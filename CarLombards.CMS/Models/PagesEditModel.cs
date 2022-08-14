@@ -101,5 +101,7 @@ public class PagesEditModel
 
     [Display(Name = "PageView"), Required]
     public string PageView { get; set; }
-}
 
+    [Display(Name = "SiteMapPriority")]
+    public string SiteMapPriority { get; set; }
+}

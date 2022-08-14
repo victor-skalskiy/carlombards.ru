@@ -8,7 +8,7 @@ namespace CarLombards.Services;
 public class PagesService : IPagesService
 {
     private readonly PagesContext _context;
-
+    
     public PagesService(PagesContext context)
     {
         _context = context;
@@ -74,7 +74,8 @@ public class PagesService : IPagesService
         string themeColor, bool isArticle, string bodyContent, bool inReadMoreList, string pageTable, string pageTableTitle,
         bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle, string mainMenuFooterDescription,
         int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords, string importantArticleTitle,
-        string title, string pageView, string metaDescription, string pageTableContent, CancellationToken token = default)
+        string title, string pageView, string metaDescription, string pageTableContent, string siteMapPriority,
+        CancellationToken token = default)
     {
         var created = new PagesEntity()
         {
@@ -109,7 +110,8 @@ public class PagesService : IPagesService
             PageView = pageView,
             IsActive = true,
             MetaDescription = metaDescription,
-            PageTableContent = pageTableContent
+            PageTableContent = pageTableContent,
+            SiteMapPriority = siteMapPriority
         };
 
         _context.PagesEntities.Add(created);
@@ -124,7 +126,7 @@ public class PagesService : IPagesService
         string pageTableTitle, bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle,
         string mainMenuFooterDescription, int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords,
         string importantArticleTitle, string title, string pageView, string metaDescription, string pageTableContent,
-        CancellationToken token = default)
+        string siteMapPriority, CancellationToken token = default)
     {
         var finded = await _context.PagesEntities.Where(x => x.IsActive && x.Id == id).FirstOrDefaultAsync();
         if (finded is null)
@@ -162,6 +164,7 @@ public class PagesService : IPagesService
         finded.PageView = pageView;
         finded.MetaDescription = metaDescription;
         finded.PageTableContent = pageTableContent;
+        finded.SiteMapPriority = siteMapPriority;
 
         _context.PagesEntities.Update(finded);
         await _context.SaveChangesAsync(token);
@@ -180,5 +183,25 @@ public class PagesService : IPagesService
         await _context.SaveChangesAsync(token);
 
         return true;
+    }
+
+    public async Task<List<string>> GetSitemapAsync(CancellationToken token = default)
+    {
+        //TODO: refac this shit
+        var result = new List<string>();
+
+        var pages = await _context.PagesEntities
+            .Where(x => !string.IsNullOrWhiteSpace(x.SiteMapPriority))
+            .OrderBy(o => o.SiteMapPriority).ToListAsync();
+
+        result.Add("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        result.Add("<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd\">");        
+        foreach (var page in pages)
+        {
+            result.Add($"<url><loc>https://carlombards.ru{page.PageUrl}</loc><lastmod>{page.ModifyDate:yyyy-MM-dd}</lastmod><priority>{page.SiteMapPriority}</priority></url>");
+        }
+        result.Add("</urlset>");
+
+        return result;
     }
 }

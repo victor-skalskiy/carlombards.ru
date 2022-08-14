@@ -37,6 +37,7 @@ public static class Mapper
             ImportantArticleTitle = pagesEntity.ImportantArticleTitle,
             PageView = pagesEntity.PageView,
             MetaDescription = pagesEntity.MetaDescription,
-            PageTableContent = pagesEntity.PageTableContent
+            PageTableContent = pagesEntity.PageTableContent,
+            SiteMapPriority = pagesEntity.SiteMapPriority
         };
 }

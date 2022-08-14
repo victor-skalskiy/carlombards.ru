@@ -34,4 +34,5 @@ public class PagesEntity : BaseEntity
     public string PageView { get; set; }
     public string? MetaDescription { get; set; }
     public string? PageTableContent { get; set; }
+    public string? SiteMapPriority { get; set; }
 }

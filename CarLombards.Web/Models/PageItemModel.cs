@@ -43,7 +43,10 @@ public class PageItemModel
     public bool ButtonsShareView { get; set; }
     public string ButtonsColor { get; set; }
 
-    public string Url(HttpContext context) => $"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}";
+    public string GetUrl(string url, HttpContext context) => $"{Host(context)}{url}";
+    public string Host(HttpContext context) => $"https://{context.Request.Host}";
+
+    public string Url(HttpContext context) => $"{Host(context)}{context.Request.Path}";
 
     public bool MainMenu { get; set; }
     public string MainMenuTitle { get; set; }
@@ -60,6 +63,7 @@ public class PageItemModel
     public List<Pages> ImportantArticleItems { get; set; }
 
     public string PageView { get; set; }
+    public string SiteMapPriority { get; set; }
 
 
     #region ВИЗУАЛКА

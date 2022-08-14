@@ -408,6 +408,8 @@ OrchardCore.CMS
 original-images
 CarLombards.Web/wwwroot/images/*.webp
 CarLombards.Web/wwwroot/images/*.png
+robots.txt
+sitemap.xml
 
 # Local History for Visual Studio
 .localhistory/

@@ -71,7 +71,8 @@ public class ArticleController : Controller
                 ThemeColor = (ThemeColor)Enum.Parse(typeof(ThemeColor), pages.ThemeColor),
                 PageView = pages.PageView,
                 PageTableContent = pages.PageTableContent,
-                MetaDescription = pages.MetaDescription
+                MetaDescription = pages.MetaDescription,
+                SiteMapPriority = pages.SiteMapPriority
             };
 
 
@@ -100,5 +101,49 @@ public class ArticleController : Controller
     public Task<IActionResult> AnyPage(string page)
     {
         return Process(page);
+    }
+
+    [Route("robots.txt")]
+    public async Task<FileStreamResult> RobotTxt()
+    {
+        var fileName = "robots.txt";
+
+        var pages = await _pages.GetByUrlAsync(fileName);
+        if (pages.Id < 1)
+        {
+            pages.BodyContent = @"User-agent: *
+Disallow:
+Host: https://carlombards.ru
+Disallow: /crm/";
+        }
+
+        var fi = new FileInfo(fileName);
+        using (StreamWriter writer = fi.CreateText())
+        {
+            writer.WriteLine(pages.BodyContent);
+        }
+        return File(fi.OpenRead(), "text/plain");
+    }
+
+    [Route("sitemap.xml")]
+    public async Task<FileStreamResult> SitemapXml()
+    {
+        var fileName = "sitemap.xml";
+
+        var content = await _pages.GetSitemapAsync(HttpContext.RequestAborted);
+        if (content.Count < 1)
+        {
+            throw new HttpRequestException("File doesn't exist", null, System.Net.HttpStatusCode.NotFound);
+        }
+
+        var fi = new FileInfo(fileName);
+        using (StreamWriter writer = fi.CreateText())
+        {
+            foreach (var row in content)
+            {
+                writer.WriteLine(row);
+            }            
+        }
+        return File(fi.OpenRead(), "text/plain");
     }
 }

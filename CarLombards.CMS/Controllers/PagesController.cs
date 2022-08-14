@@ -46,7 +46,7 @@ public class PagesController : Controller
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
+            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent, model.SiteMapPriority,            
             HttpContext.RequestAborted);
 
         return RedirectToAction(nameof(Index));
@@ -91,7 +91,8 @@ public class PagesController : Controller
                 ThemeColor = pages.ThemeColor,
                 PageView = pages.PageView,
                 MetaDescription = pages.MetaDescription,
-                PageTableContent = pages.PageTableContent
+                PageTableContent = pages.PageTableContent,
+                SiteMapPriority = pages.SiteMapPriority
             });
     }
 
@@ -103,7 +104,7 @@ public class PagesController : Controller
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
+            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent, model.SiteMapPriority,
             HttpContext.RequestAborted);
 
         return RedirectToAction(nameof(Index));
@@ -134,8 +135,8 @@ public class PagesController : Controller
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.ListTitle, model.PageView, model.MetaDescription, model.PageTableContent,
-            HttpContext.RequestAborted);
+            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
+            model.SiteMapPriority, HttpContext.RequestAborted);
         }
 
         return RedirectToAction(nameof(Index));
