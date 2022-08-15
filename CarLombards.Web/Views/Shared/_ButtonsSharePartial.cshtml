@@ -1,15 +1,20 @@
 ﻿@if (Model.ButtonsShareView)
 {
-    <div class="social-buttons" style="margin-top: 3rem;">
-        <div class="item">
-            <a href="https://t.me/share/url?url=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
-                <img src="/images/icons/telegram-@(Model.ButtonsColor).png" alt="">
-            </a>
-        </div>
-        <div class="item">
-            <a href="https://vk.com/share.php?url=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
-                <img src="/images/icons/vk-@(Model.ButtonsColor).png" alt="">
-            </a>
-        </div>
+<div class="social-buttons" style="margin-top: 3rem;">
+    <div class="item">
+        <a href="https://t.me/share/url?url=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
+            <img src="/images/icons/telegram-@(Model.ButtonsColor).png" alt="Переслать ссылку на статью через Telegram">
+        </a>
     </div>
+    <div class="item">
+        <a href="https://vk.com/share.php?url=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
+            <img src="/images/icons/vk-@(Model.ButtonsColor).png" alt="Переслать ссылку на статью через VK">
+        </a>
+    </div>
+    <div class="item size-24">
+        <a href="whatsapp://send?text=@Model.Url(Context)" rel="noopener noreferrer" target="_blank">
+            <img src="/images/icons/whatsapp-@(Model.ButtonsColor).png" alt="Переслать ссылку на статью через WhatsApp">
+        </a>
+    </div>
+</div>
 }

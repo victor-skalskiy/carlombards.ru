@@ -2860,6 +2860,7 @@ article section.article__text-icon_icon-info .article__paragraph {
         top: 0;
         left: 0;
     }
+
     article section.article__text-icon_icon-info .article__paragraph.with_lamp:before {
         content: "";
         width: 32px;
@@ -2870,6 +2871,7 @@ article section.article__text-icon_icon-info .article__paragraph {
         top: 0;
         left: 0;
     }
+
     article section.article__text-icon_icon-info .article__paragraph.with_question:before {
         content: "";
         width: 32px;
@@ -13738,30 +13740,37 @@ header.header__invisible {
 .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container svg path {
     stroke: #fff;
 }
+
 .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container,
 .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover {
     color: #fff;
 }
+
     .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container a,
     .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
         color: #fff;
     }
+
 .dark-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container,
 .dark-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover {
     color: #000;
 }
+
     .dark-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container a,
     .dark-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
         color: #000;
     }
+
 .blue-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container,
 .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover {
     color: #000;
 }
+
     .blue-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container a,
     .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover a {
         color: #000;
     }
+
 .blue-theme .header-nav .logo_alternative + .nav .nav__item.changed__dark:hover .nav__item_container a,
 .blue-theme .header-nav .logo_alternative + .nav .nav__item.changed__dark .nav__item_container:hover a {
     color: #fff;
@@ -13771,10 +13780,12 @@ header.header__invisible {
 .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
     fill: #000;
 }
+
 .dark-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container svg path,
 .dark-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
     fill: #fff;
 }
+
 .blue-theme .header-nav .logo_alternative + .nav .nav__item:hover .nav__item_container svg path,
 .blue-theme .header-nav .logo_alternative + .nav .nav__item .nav__item_container:hover svg path {
     fill: #fff;
@@ -19302,6 +19313,10 @@ header.light-theme.hide {
         .bottom__content a:hover {
             color: #ffb800 !important;
         }
+
+    .bottom__content span {
+        font-size: 1.5rem;
+    }
 
 .bottom__links {
     font-family: 'Hauss', 'Arial', sans-serif;

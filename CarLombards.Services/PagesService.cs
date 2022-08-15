@@ -200,7 +200,8 @@ public class PagesService : IPagesService
         result.Add("<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd\">");        
         foreach (var page in pages)
         {
-            result.Add($"<url><loc>https://carlombards.ru{page.PageUrl}</loc><lastmod>{page.ModifyDate:yyyy-MM-dd}</lastmod><priority>{page.SiteMapPriority}</priority></url>");
+            var urlpart = page.PageUrl.ToLower() == "/index" ? "/" : page.PageUrl;
+            result.Add($"<url><loc>https://carlombards.ru{urlpart}</loc><lastmod>{page.ModifyDate:yyyy-MM-dd}</lastmod><priority>{page.SiteMapPriority}</priority></url>");
         }
         result.Add("</urlset>");
 
