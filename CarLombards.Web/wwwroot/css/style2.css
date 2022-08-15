@@ -12987,6 +12987,10 @@ body.visually-impaired-mode .textarea.textarea_error.textarea_error {
 
 .pages-menu__links-title {
     margin-bottom: 5px;
+   
+}
+
+.pages-menu__links a{
     text-decoration: underline;
 }
 
@@ -19249,9 +19253,7 @@ body.visually-impaired-mode .rake-test {
     }
 
 /* changed styles */
-a {
-    text-decoration: none !important;
-}
+
 
 .lite__nav-item {
     padding: 0 8px;
