@@ -4594,12 +4594,12 @@ article section.article__thesis strong {
         border-color: rgba(0,0,0,.3);
     }
 
-.dark-theme .article-header__container .description a {
+.blue-theme .article-header__container .description a {
     color: #fff;
     border-color: hsla(0,0%,100%,.3);
 }
 
-    .dark-theme .article-header__container .description a:hover {
+    .blue-theme .article-header__container .description a:hover {
         color: hsla(0,0%,100%,.7);
         border-color: hsla(0,0%,100%,.3);
     }
@@ -19253,7 +19253,10 @@ body.visually-impaired-mode .rake-test {
     }
 
 /* changed styles */
-
+.article-header a
+{
+    text-decoration:underline;
+}
 
 .lite__nav-item {
     padding: 0 8px;
