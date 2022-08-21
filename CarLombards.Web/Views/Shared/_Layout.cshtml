@@ -1,4 +1,4 @@
-﻿<html lang="ru"> 
+﻿<html lang="ru">
 <head>
     <base href="/">
     <title>@Model.MetaTitle</title>
@@ -31,7 +31,7 @@
 
     @Html.Raw(Model.TagsHeader)
 </head>
-<body class="chrome chrome103">    
+<body class="chrome chrome103">
     @Html.Raw(Model.TagsBody)
     <div id="root">
         <div>
@@ -90,11 +90,7 @@
                                 </div>
                             </section>
                         }
-                        @*Блок дополнииельных материалов перед футером*@
-                        @if (Model.RenderReadMore)
-                        {
-                            <partial name="_ReadmorePartial" />
-                        }
+                        <partial name="_ReadmorePartial" />
                     </div>
                 </div>
                 <div class="article-reading-progress">

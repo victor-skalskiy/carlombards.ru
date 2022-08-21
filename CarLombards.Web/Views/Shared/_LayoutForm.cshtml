@@ -29,10 +29,10 @@
     <link href="~/css/style2.css" rel="stylesheet" asp-append-version="true">
     <link href="~/css/site.css" rel="stylesheet" asp-append-version="true">
 
-    <partial name="_HeaderTags" />
+    @Html.Raw(Model.TagsHeader)
 </head>
 <body class="chrome chrome103">
-    <partial name="_BodyTags" />
+    @Html.Raw(Model.TagsBody)
     <div id="root">
         <div>
             <header class="@Model.HeaderClass">
