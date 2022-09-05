@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CarLombards.Interfaces;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarLombards.CMS;
 
@@ -21,6 +22,7 @@ public class PagesController : Controller
         _pages = service;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Index()
     {
@@ -29,7 +31,8 @@ public class PagesController : Controller
             PagesList = await _pages.GetListAsync(HttpContext.RequestAborted)
         });
     }
-
+    
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Create()
     {
@@ -38,6 +41,7 @@ public class PagesController : Controller
             new PagesEditModel());
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> Create(PagesEditModel model)
     {
@@ -52,6 +56,7 @@ public class PagesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Edit(long id)
     {
@@ -96,6 +101,7 @@ public class PagesController : Controller
             });
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> Edit(long id, PagesEditModel model)
     {
@@ -110,6 +116,7 @@ public class PagesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Delete(long id)
     {
@@ -118,6 +125,7 @@ public class PagesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Load()
     {
@@ -142,6 +150,8 @@ public class PagesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize]
+    [HttpGet]
     public async Task<IActionResult> Save()
     {
         var allitems = await _pages.GetAllAsync(HttpContext.RequestAborted);
