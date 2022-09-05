@@ -22,7 +22,7 @@ public class PagesController : Controller
         _pages = service;
     }
 
-    
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Index()
     {

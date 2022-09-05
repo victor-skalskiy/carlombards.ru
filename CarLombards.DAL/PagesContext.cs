@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarLombards.DAL;
 
-public class PagesContext : DbContext
+public class PagesContext : IdentityDbContext<IdentityUser>
 {
     public DbSet<PagesEntity> PagesEntities { get; set; }
 
