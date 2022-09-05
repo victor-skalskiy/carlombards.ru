@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "CL.CMS: List of content";
+}
+
+@if (Model.PagesList != null && Model.PagesList.Count > 0)
+{
+
+    <table class="table">
+        <thead class=".thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Page url</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model.PagesList)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Title</td>
+                        <td>@item.PageUrl</td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Pages", new { id = item.Id }, new { @class = "btn btn-primary" })&nbsp;@Html.ActionLink("Delete", "Delete", "Pages", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="callout callout-warning">
+        <h2>Pages doesn't exists yet</h2>
+        <p>click <a href="/pages/create" class="btn btn-primary">Create</a> to start configuring it</p>
+    </div>
+}
