@@ -1,4 +1,5 @@
 ﻿using CarLombards.Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace CarLombards.Interfaces;
 
@@ -24,12 +25,15 @@ public interface IPagesService
 
     public Task<List<Pages>> GetArticles(CancellationToken token = default);
 
+    public Task<List<Pages>> GetManualArticles(CancellationToken token = default);
+
     public Task<Pages> CreateAsync(string listTitle, string listImageUrl, string pageTitle, string pageH1, string pageDescription,
         string pageDate, string pageUrl, string headBackgroundColor, bool renderReadMore, bool renderHeadTags, string renderHeadTagsCenter,
         string themeColor, bool isArticle, string bodyContent, bool inReadMoreList, string pageTable, string pageTableTitle,
         bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle, string mainMenuFooterDescription, int mainMenuOrder,
         bool importantArticle, string pageScript, string metaKeywords, string importantArticleTitle, string title, string pageView,
-        string metaDescription, string pageTableContent, string siteMapPriority, CancellationToken token = default);
+        string metaDescription, string pageTableContent, string siteMapPriority, bool isManualList, string manualListTitle,
+        int manualListOrder, CancellationToken token = default);
 
     public Task<Pages> UpdateAsync(long id, string listTitle, string listImageUrl, string pageTitle, string pageH1,
         string pageDescription, string pageDate, string pageUrl, string headBackgroundColor, bool renderReadMore, bool renderHeadTags,
@@ -37,7 +41,7 @@ public interface IPagesService
         string pageTableTitle, bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle,
         string mainMenuFooterDescription, int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords,
         string importantArticleTitle, string title, string pageView, string metaDescription, string pageTableContent,
-        string siteMapPriority, CancellationToken token = default);
+        string siteMapPriority, bool isManualList, string manualListTitle, int manualListOrder, CancellationToken token = default);
 
     public Task<bool> DeleteAsync(long id, CancellationToken token = default);
 }

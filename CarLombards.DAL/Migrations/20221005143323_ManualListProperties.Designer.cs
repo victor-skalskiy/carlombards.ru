@@ -3,6 +3,7 @@ using System;
 using CarLombards.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,13 +12,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarLombards.DAL.Migrations
 {
     [DbContext(typeof(PagesContext))]
-    partial class PagesContextModelSnapshot : ModelSnapshot
+    [Migration("20221005143323_ManualListProperties")]
+    partial class ManualListProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -80,9 +82,6 @@ namespace CarLombards.DAL.Migrations
 
                     b.Property<string>("MainMenuTitle")
                         .HasColumnType("text");
-
-                    b.Property<int>("ManualListOrder")
-                        .HasColumnType("integer");
 
                     b.Property<string>("ManualListTitle")
                         .HasColumnType("text");

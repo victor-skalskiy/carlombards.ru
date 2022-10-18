@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UserListModel>
+
+@{
+    ViewData["Title"] = "CL.CMS: Users";
+}
+
+<table class="table">
+    <thead class=".thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Name</th>
+                    <td>@item.Email</td>
+                    <td>@item.Status</td>
+                    <td>
+                        @if (item.IsConfirmed)
+                        {
+                            @Html.ActionLink("Disable", "DisableUser", "Pages", new { id = item.Id }, new { @class = "btn btn-danger" });
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Enable", "EnableUser", "Pages", new { id = item.Id }, new { @class = "btn btn-primary" });
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

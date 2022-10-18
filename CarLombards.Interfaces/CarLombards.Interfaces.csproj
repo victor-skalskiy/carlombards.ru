@@ -9,4 +9,10 @@
   <ItemGroup>
     <ProjectReference Include="..\CarLombards.Domain\CarLombards.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+  </ItemGroup>
 </Project>

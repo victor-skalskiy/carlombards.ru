@@ -1,6 +1,25 @@
-﻿@{ Layout = "_Layout";}
+﻿@{ Layout = "_LayoutList";}
 
 <div class="articles articles-items">
+    <div class="card-list with-max-width">
+        <ul class="card-list__list">
+            @foreach (var item in Model.ListManualArticles)
+            {
+                <li class="card card-list__card">
+                    <a href="@item.PageUrl">
+                        <div class="card__picture-wrapper"><img src="@item.ListImageUrl" alt="@item.ManualListTitle"></div>
+                    </a>
+                    <div class="card__detail">
+                        <h4><a href="@item.PageUrl">@Html.Raw(item.ManualListTitle)</a></h4>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="articles articles-items" style="margin-top: 0px;">
+    <h2>@Html.Raw(Model.PageH1)</h2>
     <div class="card-list with-max-width">
         <ul class="card-list__list">
             @foreach (var item in Model.ListArticles)
@@ -15,8 +34,5 @@
                 </li>
             }
         </ul>
-        @*<div class="card-list__show-all-button-wrapper">
-            <button class="button card-list__show-all-button"><span class="button__label">Показать еще</span></button>
-        </div>*@
     </div>
 </div>

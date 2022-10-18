@@ -38,6 +38,9 @@ public static class Mapper
             PageView = pagesEntity.PageView,
             MetaDescription = pagesEntity.MetaDescription,
             PageTableContent = pagesEntity.PageTableContent,
-            SiteMapPriority = pagesEntity.SiteMapPriority
+            SiteMapPriority = pagesEntity.SiteMapPriority,
+            IsManualList = pagesEntity.IsManualList,
+            ManualListTitle = pagesEntity.ManualListTitle,
+            ManualListOrder = pagesEntity.ManualListOrder
         };
 }

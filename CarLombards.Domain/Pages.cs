@@ -40,4 +40,19 @@ public class Pages
     public string MetaDescription { get; set; }
     public string PageTableContent { get; set; }
     public string SiteMapPriority { get; set; }
+
+    /// <summary>
+    /// Flag for grouping items like a manual on the list page
+    /// </summary>
+    public bool IsManualList { get; set; }
+
+    /// <summary>
+    /// Separate title for others items on list page
+    /// </summary>
+    public string ManualListTitle { get; set; }
+
+    /// <summary>
+    /// Order index for manual info-block
+    /// </summary>
+    public int ManualListOrder { get; set; }
 }

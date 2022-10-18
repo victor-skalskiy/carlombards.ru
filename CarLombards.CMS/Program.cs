@@ -19,6 +19,7 @@ builder.Services
                     assebly.MigrationsAssembly("CarLombards.DAL"));
     })
     .AddScoped<IPagesService, PagesService>()
+    .AddScoped<IUserManagerService, UserManagerService>()
     .AddSingleton<IPagesOptions, PagesOptions>()    
     .AddControllersWithViews();
 
@@ -34,6 +35,7 @@ builder.Services
         options.Password.RequireUppercase = false;
         options.Password.RequireNonAlphanumeric = false;
     })
+    .AddUserManager<AspNetUserManager<IdentityUser>>()
     .AddEntityFrameworkStores<PagesContext>();
 
 var app = builder.Build();
