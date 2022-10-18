@@ -100,15 +100,32 @@
                         <input class="form-control" asp-for="@Model.MainMenuOrder" />
                         <span asp-validation-for="@Model.MainMenuOrder" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-3">
+
+                    <div class="form-group col-md-2">
                         <input class="form-check-input" asp-for=@Model.ImportantArticle type="checkbox" />
                         <label class="form-check-label" asp-for="@Model.ImportantArticle"></label>
                         <span asp-validation-for="@Model.ImportantArticle" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-9">
+                    <div class="form-group col-md-10">
                         <label class="form-label" asp-for="@Model.ImportantArticleTitle"></label>
                         <input class="form-control" asp-for="@Model.ImportantArticleTitle" />
                         <span asp-validation-for="@Model.ImportantArticleTitle" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <input class="form-check-input" asp-for=@Model.IsManualList type="checkbox" />
+                        <label class="form-check-label" asp-for="@Model.IsManualList"></label>
+                        <span asp-validation-for="@Model.IsManualList" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label class="form-label" asp-for="@Model.ManualListTitle"></label>
+                        <input class="form-control" asp-for="@Model.ManualListTitle" />
+                        <span asp-validation-for="@Model.ManualListTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="form-label" asp-for="@Model.ManualListOrder"></label>
+                        <input class="form-control" asp-for="@Model.ManualListOrder" />
+                        <span asp-validation-for="@Model.ManualListOrder" class="text-danger"></span>
                     </div>
                 </div>
             </div>

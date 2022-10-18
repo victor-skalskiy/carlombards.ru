@@ -104,4 +104,13 @@ public class PagesEditModel
 
     [Display(Name = "SiteMapPriority")]
     public string SiteMapPriority { get; set; }
+
+    [Display(Name = "IsManualList")]
+    public bool IsManualList { get; set; }
+
+    [Display(Name = "ManualListTitle")]
+    public string ManualListTitle { get; set; }
+
+    [Display(Name = "ManualListOrder")]
+    public int ManualListOrder { get; set; }
 }

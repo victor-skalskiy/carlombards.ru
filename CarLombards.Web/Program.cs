@@ -1,6 +1,8 @@
 ﻿using CarLombards.DAL;
 using CarLombards.Interfaces;
 using CarLombards.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services
     .AddDbContext<PagesContext>(options => { options.UseNpgsql(connectionString); })
     .AddScoped<IPagesService, PagesService>()
-    .AddSingleton<IPagesOptions, PagesOptions>()
+    .AddSingleton<IPagesOptions, PagesOptions>()    
     .AddControllersWithViews();
 
 var app = builder.Build();

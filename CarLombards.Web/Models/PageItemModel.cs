@@ -40,6 +40,9 @@ public class PageItemModel
     [JsonIgnore]
     public List<Pages> ListArticles { get; set; }
 
+    [JsonIgnore]
+    public List<Pages> ListManualArticles { get; set; }
+
     public bool ButtonsShareView { get; set; }
     public string ButtonsColor { get; set; }
 
@@ -58,6 +61,9 @@ public class PageItemModel
 
     public bool ImportantArticle { get; set; }
     public string ImportantArticleTitle { get; set; }
+
+    public bool IsIsManualList { get; set; }
+    public string ManualListTitle { get; set; }
 
     [JsonIgnore]
     public List<Pages> ImportantArticleItems { get; set; }

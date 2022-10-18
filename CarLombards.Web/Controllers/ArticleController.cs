@@ -74,16 +74,19 @@ public class ArticleController : Controller
                 PageView = pages.PageView,
                 PageTableContent = pages.PageTableContent,
                 MetaDescription = pages.MetaDescription,
-                SiteMapPriority = pages.SiteMapPriority
+                SiteMapPriority = pages.SiteMapPriority,
+                IsIsManualList = pages.IsManualList,
+                ManualListTitle = pages.ManualListTitle
             };
 
-        var tags = await _pages.GetTagsListAsync();
+        var tags = await _pages.GetTagsListAsync(HttpContext.RequestAborted);
         model.TagsBody = tags[_pagesOptions.TagsBodyEntityTitle].PageScript;
         model.TagsHeader = tags[_pagesOptions.TagsHeadEntityTitle].PageScript;
-        model.MainMenuItems = await _pages.GetMainMenu();
-        model.ReadMoreList = await _pages.GetReadMore();
-        model.ImportantArticleItems = await _pages.GetImportant();
-        model.ListArticles = await _pages.GetArticles();
+        model.MainMenuItems = await _pages.GetMainMenu(HttpContext.RequestAborted);
+        model.ReadMoreList = await _pages.GetReadMore(HttpContext.RequestAborted);
+        model.ImportantArticleItems = await _pages.GetImportant(HttpContext.RequestAborted);
+        model.ListArticles = await _pages.GetArticles(HttpContext.RequestAborted);
+        model.ListManualArticles = await _pages.GetManualArticles(HttpContext.RequestAborted);
         model.PageTable = GetTable(pages.PageTable);
         model.SetTheme();
 
@@ -146,7 +149,7 @@ Disallow: /crm/";
             foreach (var row in content)
             {
                 writer.WriteLine(row);
-            }            
+            }
         }
         return File(fi.OpenRead(), "text/plain");
     }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CarLombards.Interfaces;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace CarLombards.CMS;
 
@@ -15,11 +16,13 @@ public class PagesController : Controller
     }
 
     private readonly IPagesService _pages;
+    private readonly IUserManagerService _userManagerService;
     private const string dataFileName = "ContentData.json";
 
-    public PagesController(IPagesService service)
+    public PagesController(IPagesService service, IUserManagerService userManagerService)
     {
         _pages = service;
+        _userManagerService = userManagerService;
     }
 
     [Authorize]
@@ -31,7 +34,42 @@ public class PagesController : Controller
             PagesList = await _pages.GetListAsync(HttpContext.RequestAborted)
         });
     }
-    
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Users()
+    {
+        var users = (await _userManagerService.GetList(HttpContext.RequestAborted))
+            .Select(x => new UserListModel
+                {
+                    Email = x.Email,
+                    Id = x.Id,
+                    IsConfirmed = x.EmailConfirmed,
+                    Name = x.UserName,
+                    Status = x.EmailConfirmed ? "active" : "suspend"
+                });
+
+        return View(
+            nameof(this.Users),
+            users);
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> DisableUser(string id)
+    {
+        await _userManagerService.ChangeStatus(id, false, HttpContext.RequestAborted);
+        return RedirectToAction(nameof(this.Users));
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> EnableUser(string id)
+    {
+        await _userManagerService.ChangeStatus(id, true, HttpContext.RequestAborted);
+        return RedirectToAction(nameof(this.Users));
+    }
+
     [Authorize]
     [HttpGet]
     public async Task<IActionResult> Create()
@@ -50,8 +88,8 @@ public class PagesController : Controller
             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent, model.SiteMapPriority,            
-            HttpContext.RequestAborted);
+            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent, model.SiteMapPriority,
+            model.IsManualList, model.ManualListTitle, model.ManualListOrder, HttpContext.RequestAborted);
 
         return RedirectToAction(nameof(Index));
     }
@@ -97,7 +135,10 @@ public class PagesController : Controller
                 PageView = pages.PageView,
                 MetaDescription = pages.MetaDescription,
                 PageTableContent = pages.PageTableContent,
-                SiteMapPriority = pages.SiteMapPriority
+                SiteMapPriority = pages.SiteMapPriority,
+                IsManualList = pages.IsManualList,
+                ManualListTitle = pages.ManualListTitle,
+                ManualListOrder = pages.ManualListOrder
             });
     }
 
@@ -111,7 +152,7 @@ public class PagesController : Controller
             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
             model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent, model.SiteMapPriority,
-            HttpContext.RequestAborted);
+            model.IsManualList, model.ManualListTitle, model.ManualListOrder, HttpContext.RequestAborted);
 
         return RedirectToAction(nameof(Index));
     }
@@ -138,13 +179,13 @@ public class PagesController : Controller
 
         foreach (var model in items)
         {
-           await _pages.CreateAsync(model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
-            model.PageDescription, model.PageDate, model.PageUrl, model.HeadBackgroundColor, model.RenderReadMore, model.RenderHeadTags,
-            model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
-            model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
-            model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
-            model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
-            model.SiteMapPriority, HttpContext.RequestAborted);
+            await _pages.CreateAsync(model.ListTitle, model.ListImageUrl, model.PageTitle, model.PageH1,
+             model.PageDescription, model.PageDate, model.PageUrl, model.HeadBackgroundColor, model.RenderReadMore, model.RenderHeadTags,
+             model.RenderHeadTagsCenter, model.ThemeColor, model.IsArticle, model.BodyContent, model.InReadMoreList, model.PageTable,
+             model.PageTableTitle, model.ButtonsShareView, model.ButtonsColor, model.MainMenu, model.MainMenuTitle,
+             model.MainMenuFooterDescription, model.MainMenuOrder, model.ImportantArticle, model.PageScript, model.MetaKeywords,
+             model.ImportantArticleTitle, model.Title, model.PageView, model.MetaDescription, model.PageTableContent,
+             model.SiteMapPriority, model.IsManualList, model.ManualListTitle, model.ManualListOrder, HttpContext.RequestAborted);
         }
 
         return RedirectToAction(nameof(Index));

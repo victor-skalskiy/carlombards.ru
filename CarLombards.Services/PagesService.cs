@@ -2,6 +2,7 @@
 using CarLombards.Interfaces;
 using CarLombards.DAL;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace CarLombards.Services;
 
@@ -9,7 +10,7 @@ public class PagesService : IPagesService
 {
     private readonly PagesContext _context;
     private readonly IPagesOptions _pagesOptions;
-    
+
     public PagesService(PagesContext context, IPagesOptions pagesOptions)
     {
         _context = context;
@@ -67,7 +68,14 @@ public class PagesService : IPagesService
 
     public async Task<List<Pages>> GetArticles(CancellationToken token = default)
     {
-        return await _context.PagesEntities.Where(x => x.IsActive && x.IsArticle)
+        return await _context.PagesEntities.Where(x => x.IsActive && x.IsArticle && !x.IsManualList)
+            .Select(z => Mapper.FillPages(z)).ToListAsync();
+    }
+
+    public async Task<List<Pages>> GetManualArticles(CancellationToken token = default)
+    {
+        return await _context.PagesEntities.Where(x => x.IsActive && x.IsArticle && x.IsManualList)
+            .OrderBy(o => o.ManualListOrder)
             .Select(z => Mapper.FillPages(z)).ToListAsync();
     }
 
@@ -77,7 +85,7 @@ public class PagesService : IPagesService
         bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle, string mainMenuFooterDescription,
         int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords, string importantArticleTitle,
         string title, string pageView, string metaDescription, string pageTableContent, string siteMapPriority,
-        CancellationToken token = default)
+        bool isManualList, string manualListTitle, int manualListOrder, CancellationToken token = default)
     {
         var created = new PagesEntity()
         {
@@ -113,7 +121,10 @@ public class PagesService : IPagesService
             IsActive = true,
             MetaDescription = metaDescription,
             PageTableContent = pageTableContent,
-            SiteMapPriority = siteMapPriority
+            SiteMapPriority = siteMapPriority,
+            IsManualList = isManualList,
+            ManualListTitle = manualListTitle,
+            ManualListOrder = manualListOrder
         };
 
         _context.PagesEntities.Add(created);
@@ -128,7 +139,7 @@ public class PagesService : IPagesService
         string pageTableTitle, bool buttonsShareView, string buttonsColor, bool mainMenu, string mainMenuTitle,
         string mainMenuFooterDescription, int mainMenuOrder, bool importantArticle, string pageScript, string metaKeywords,
         string importantArticleTitle, string title, string pageView, string metaDescription, string pageTableContent,
-        string siteMapPriority, CancellationToken token = default)
+        string siteMapPriority, bool isManualList, string manualListTitle, int manualListOrder, CancellationToken token = default)
     {
         var finded = await _context.PagesEntities.Where(x => x.IsActive && x.Id == id).FirstOrDefaultAsync();
         if (finded is null)
@@ -167,6 +178,9 @@ public class PagesService : IPagesService
         finded.MetaDescription = metaDescription;
         finded.PageTableContent = pageTableContent;
         finded.SiteMapPriority = siteMapPriority;
+        finded.IsManualList = isManualList;
+        finded.ManualListTitle = manualListTitle;
+        finded.ManualListOrder = manualListOrder;
 
         _context.PagesEntities.Update(finded);
         await _context.SaveChangesAsync(token);
@@ -197,7 +211,7 @@ public class PagesService : IPagesService
             .OrderBy(o => o.SiteMapPriority).ToListAsync();
 
         result.Add("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-        result.Add("<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd\">");        
+        result.Add("<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd\">");
         foreach (var page in pages)
         {
             var urlpart = page.PageUrl.ToLower() == "/index" ? "/" : page.PageUrl;
