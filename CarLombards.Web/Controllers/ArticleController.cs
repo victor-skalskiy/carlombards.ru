@@ -95,7 +95,7 @@ public class ArticleController : Controller
 
     public Task<IActionResult> Index()
     {
-        return Process("Index");
+        return Process("/");
     }
 
     [Route("articles/{page}")]
