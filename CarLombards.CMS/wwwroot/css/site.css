@@ -16,3 +16,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.item-edit-link:hover {
+    text-decoration: underline;
+}

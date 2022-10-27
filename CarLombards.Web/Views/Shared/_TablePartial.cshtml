@@ -16,7 +16,7 @@
                                             foreach (var cell in row)
                                             {
                                                 <div class="table__cell table__cell_header" colspan="1" role="columnheader">
-                                                    <span>@cell</span>
+                                                    <span>@Html.Raw(cell)</span>
                                                 </div>
                                             }
                                         }
@@ -45,11 +45,11 @@
                                                 <div class="table__cell" role="cell">
                                                     @if (c == 0)
                                                     {
-                                                        <span><strong>@cell</strong></span>
+                                                        <span><strong>@Html.Raw(cell)</strong></span>
                                                     }
                                                     else
                                                     {
-                                                        <span>@cell</span>
+                                                        <span>@Html.Raw(cell)</span>
                                                     }
                                                 </div>
                                                 c++;
@@ -75,7 +75,7 @@
                                             foreach (var cell in row)
                                             {
                                                 <div class="table__cell table__cell_header" colspan="1" role="columnheader">
-                                                    <span>@cell</span>
+                                                    <span>@Html.Raw(cell)</span>
                                                 </div>
                                             }
                                         }
@@ -104,11 +104,11 @@
                                                 <div class="table__cell" role="cell">
                                                     @if (c2 == 0)
                                                     {
-                                                        <span><strong>@cell</strong></span>
+                                                        <span><strong>@Html.Raw(cell)</strong></span>
                                                     }
                                                     else
                                                     {
-                                                        <span>@cell</span>
+                                                        <span>@Html.Raw(cell)</span>
                                                     }
                                                 </div>
                                                 c2++;
