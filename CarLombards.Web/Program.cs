@@ -7,12 +7,19 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var useMSSQL = builder.Configuration.GetSection("DbType").Value != "posgre";
+var connectionString = builder.Configuration.GetConnectionString(useMSSQL ? "MSSQLConnection" : "DefaultConnection");
 
 builder.Services
-    .AddDbContext<PagesContext>(options => { options.UseNpgsql(connectionString); })
+    .AddDbContext<PagesContext>(options =>
+    {
+        if (useMSSQL)
+            options.UseSqlServer(connectionString);
+        else
+            options.UseNpgsql(connectionString);
+    })
     .AddScoped<IPagesService, PagesService>()
-    .AddSingleton<IPagesOptions, PagesOptions>()    
+    .AddSingleton<IPagesOptions, PagesOptions>()
     .AddControllersWithViews();
 
 var app = builder.Build();
